@@ -5,8 +5,7 @@ local config = {}
 config.font = wezterm.font('JetBrains Mono')
 config.harfbuzz_features = {"calt=0", "clig=0", "liga=0"}
 
-config.colors = require("colors.no-clown-fiesta")
-
+config.color_scheme = 'Catppuccin Mocha'
 config.leader = remaps.leader
 config.keys = remaps.keys
 
