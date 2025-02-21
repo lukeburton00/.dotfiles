@@ -9,5 +9,5 @@ git clone https://github.com/lukeburton00/.dotfiles $HOME/.dotfiles
 
 cd $HOME/.dotfiles
 
-ln -s $PWD/nvim  $HOME/.config/nvim
+ln -s $PWD/nvim $HOME/.config/nvim
 ```
