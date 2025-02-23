@@ -14,7 +14,7 @@ ln -s $HOME/.dotfiles/nvim $HOME/.config/nvim
 ```powershell
 # run Command Prompt as administrator for mklink
 
-git clone https://github.com/lukeburton00/.dotfiles %HOMEPATH%/.dotfiles
+git clone https://github.com/lukeburton00/.dotfiles %HOMEPATH\.dotfiles
 
-mklink %HOMEPATH%/Documents/Powershell %HOMEPATH%/.dotfiles/Powershell
+mklink /D %HOMEPATH%\Documents\Powershell %HOMEPATH%\.dotfiles\Powershell
 ```
