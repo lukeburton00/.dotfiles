@@ -41,7 +41,6 @@ return {
                 {
                     { name = "Find Files", action = "Telescope find_files", section = "" },
                     { name = "Live Grep", action = "Telescope live_grep", section = "" },
-                    { name = "Yazi", action = function() require("yazi").yazi() end, section = "" },
                     { name = "Oil", action = function() require("oil").open() end, section = "" },
                     { name = "Git", action = function() require("lazygit").lazygit() end, section = "" },
                 },
