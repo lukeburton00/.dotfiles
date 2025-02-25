@@ -35,6 +35,7 @@ return {
             autoopen = true,
             silent = true,
             evaluate_single = true,
+            header = "",
             footer = "",
 
             items = {
