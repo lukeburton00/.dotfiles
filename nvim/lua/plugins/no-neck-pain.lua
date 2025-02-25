@@ -1,6 +1,7 @@
 return {
     "shortcuts/no-neck-pain.nvim",
 
+
     keys = {
         {
             "<leader>z", "<cmd>NoNeckPain<CR>"
@@ -17,11 +18,10 @@ return {
                 },
             },
 
-            integrations = {
-                NeoTree = {
-                    position = "left",
-                    reopen = true
-                }
+            autocmds = {
+                enableOnVimEnter = true,
+                enableOnTabEnter = true,
+                skipEnteringNoNeckPainBuffer = true
             }
         }
     end
