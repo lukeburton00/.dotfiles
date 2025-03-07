@@ -11,6 +11,8 @@ return {
             }
         }
 
-        require ('nvim-treesitter.install').compilers = { 'zig' }
+        if jit.os == 'Windows' then
+            require ('nvim-treesitter.install').compilers = { 'zig' }
+        end
     end
 }
