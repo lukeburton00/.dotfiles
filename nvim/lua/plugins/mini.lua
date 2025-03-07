@@ -14,48 +14,5 @@ return {
 
         require("mini.statusline").setup()
         require("mini.cursorword").setup()
-
-        local starter = require "mini.starter"
-        local hooks = {
-            clear_statusline = function(buff)
-                vim.opt_local.statusline = " "
-                vim.cmd "highlight StatusLine ctermbg=None guibg=None"
-                return buff
-            end,
-
-            local_keymap = function(buff)
-                vim.keymap.set("n", "q", "<cmd>q<cr>", { buffer = 0 })
-                vim.keymap.set("n", "j", "<cmd>normal <Down><cr>", { buffer = 0 })
-                vim.keymap.set("n", "k", "<cmd>normal <Up><cr>", { buffer = 0 })
-                return buff
-            end,
-        }
-
-        starter.setup {
-            autoopen = true,
-            silent = true,
-            evaluate_single = true,
-            header = "",
-            footer = "",
-
-            items = {
-                {
-                    { name = "Find Files", action = "Telescope find_files", section = "" },
-                    { name = "Live Grep", action = "Telescope live_grep", section = "" },
-                    { name = "Oil", action = function() require("oil").open() end, section = "" },
-                    { name = "Git", action = function() require("lazygit").lazygit() end, section = "" },
-                },
-            },
-
-
-            content_hooks = {
-                starter.gen_hook.adding_bullet(" "),
-                starter.gen_hook.aligning("center", "center"),
-                hooks.clear_statusline,
-                hooks.local_keymap,
-            },
-
-            query_updaters = "abcdefghilmnopqrstuvwxyz0123456789_-.",
-        }
     end
 }
