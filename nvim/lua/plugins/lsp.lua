@@ -3,7 +3,6 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "saghen/blink.cmp"
     },
 
     event = "VeryLazy",
