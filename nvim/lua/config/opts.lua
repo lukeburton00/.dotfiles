@@ -21,6 +21,7 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
 
+vim.diagnostic.config({ virtual_text = true })
 
 vim.opt.showmode = false
 
