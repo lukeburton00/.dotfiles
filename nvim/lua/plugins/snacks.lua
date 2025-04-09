@@ -22,7 +22,7 @@ return {
     keys = function()
         local Snacks = require("snacks")
         return {
-            { "<leader>f", function() Snacks.picker.files() end, desc = "Smart Find Files" },
+            { "<leader>f", function() Snacks.picker.files() end, desc = "Find Files" },
             { "<leader>l", function() Snacks.picker.grep() end, desc = "Grep" },
             { "<leader>ce", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Config Edit" },
             { "<leader>r", function() Snacks.picker.lsp_references()  end, desc = "View References" },
