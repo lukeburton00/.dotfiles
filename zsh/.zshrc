@@ -5,6 +5,7 @@ alias vi="nvim"
 
 alias l="ls -la --color=always | sort -f -k 9,9"
 
+# Thank you BashBunni! #
 # Pomodoro #
 alias work="timer 25m && terminal-notifier -message 'Pomodoro'\
         -title 'Work Timer is up! Take a Break 😊'\
