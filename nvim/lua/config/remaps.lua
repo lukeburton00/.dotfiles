@@ -18,10 +18,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- delete without copy
-vim.keymap.set("n", "<leader>d", "\"_d")
-vim.keymap.set("v", "<leader>d", "\"_d")
-
 vim.keymap.set("n", "Q", "<nop>")
 
 -- shift-u to redo
@@ -29,7 +25,3 @@ vim.keymap.set("n", "U", "<C-r>")
 
 vim.keymap.set("n", "<leader>qo", vim.cmd.copen)
 vim.keymap.set("n", "<leader>qc", vim.cmd.cclose)
---
--- lsp
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-vim.keymap.set('n', 'gws', vim.lsp.buf.workspace_symbol)
