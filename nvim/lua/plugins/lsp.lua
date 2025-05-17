@@ -16,28 +16,14 @@ return {
             },
         }
 
-        local lspconfig = require("lspconfig")
-        require("mason-lspconfig").setup_handlers {
-            function(server)
-                local opts = {
-                    capabilities = require('blink.cmp').get_lsp_capabilities(capabilities),
-                }
+        vim.lsp.config("*", {
+            capabilities = require('blink.cmp').get_lsp_capabilities(capabilities),
+        })
 
-                if server == "angularls" then
-                    local util = require('lspconfig.util')
-                    opts.root_dir = util.root_pattern('angular.json', 'project.json')
-                end
+        vim.lsp.config("sourcekit", {
+            cmd = { "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp" }
+        })
 
-                lspconfig[server].setup(opts)
-            end
-        }
-
-        if jit.os == "OSX" then
-            lspconfig.sourcekit.setup{
-                capabilities = require('blink.cmp').get_lsp_capabilities(capabilities),
-                cmd = { "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp" }
-            }
-        end
-
+        vim.lsp.enable("sourcekit", true)
     end
 }
