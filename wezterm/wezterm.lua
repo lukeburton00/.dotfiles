@@ -14,9 +14,7 @@ config.hide_tab_bar_if_only_one_tab = true
 
 config.max_fps = 240
 
-if wezterm.target_triple:find("darwin") ~= nil then
-    config.font_size = 14
-end
+config.font_size = 14
 
 if wezterm.target_triple:find("windows") ~= nil then
     config.default_prog = { 'pwsh.exe'}
