@@ -1,4 +1,5 @@
 export EDITOR="nvim"
+bindkey -v
 
 alias vim="nvim"
 alias vi="nvim"
@@ -37,6 +38,8 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
