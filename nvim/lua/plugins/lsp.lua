@@ -5,9 +5,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
     },
 
-    event = "VeryLazy",
-
-    config = function ()
+    config = function()
         require("mason").setup()
         require("mason-lspconfig").setup {
             automatic_installation = false,
@@ -25,5 +23,7 @@ return {
         })
 
         vim.lsp.enable("sourcekit", true)
+
+        vim.keymap.set("n", "gof", vim.diagnostic.open_float, { desc = "Open Diagnostic Float" })
     end
 }

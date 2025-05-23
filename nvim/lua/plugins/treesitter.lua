@@ -1,10 +1,10 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
+    "nvim-treesitter/nvim-treesitter",
 
     event = 'VeryLazy',
 
-    config = function ()
-        require'nvim-treesitter.configs'.setup{
+    config = function()
+        require 'nvim-treesitter.configs'.setup {
             auto_install = true,
             highlight = {
                 enable = true,
@@ -12,7 +12,7 @@ return {
         }
 
         if jit.os == 'Windows' then
-            require ('nvim-treesitter.install').compilers = { 'zig' }
+            require('nvim-treesitter.install').compilers = { 'zig' }
         end
     end
 }

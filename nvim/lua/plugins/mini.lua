@@ -4,7 +4,7 @@ return {
 
     event = 'VeryLazy',
 
-    config = function ()
+    config = function()
         -- Modules
         require("mini.ai").setup()
         require("mini.surround").setup()

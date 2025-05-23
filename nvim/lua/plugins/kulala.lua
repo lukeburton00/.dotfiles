@@ -14,7 +14,7 @@ return {
         { "<leader>Ra", desc = "Send all requests" },
         { "<leader>Rb", desc = "Open scratchpad" },
     },
-    ft = {"http", "rest"},
+    ft = { "http", "rest" },
     opts = {
         global_keymaps = true,
     },

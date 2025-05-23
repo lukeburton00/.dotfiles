@@ -3,7 +3,7 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "jay-babu/mason-nvim-dap.nvim",
-        { "igorlfs/nvim-dap-view", opts = { winbar = { controls =  { enabled = true}}}}
+        { "igorlfs/nvim-dap-view", opts = { winbar = { controls = { enabled = true } } } }
     },
 
     keys = {

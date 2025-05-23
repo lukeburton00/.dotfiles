@@ -7,7 +7,7 @@ return {
 
     event = 'VeryLazy',
 
-    config = function ()
+    config = function()
         require("codecompanion").setup({
             strategies = {
                 chat = {
