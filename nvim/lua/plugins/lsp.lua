@@ -8,9 +8,14 @@ return {
     config = function()
         require("mason").setup()
         require("mason-lspconfig").setup {
-            automatic_installation = false,
             ensure_installed = {
                 "lua_ls",
+                "pyright",
+                "rust_analyzer",
+                "zls",
+                "clangd",
+                "gopls",
+                "angularls"
             },
         }
 
@@ -22,7 +27,8 @@ return {
             cmd = { "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp" }
         })
 
-        vim.lsp.enable("sourcekit", true)
+        vim.lsp.enable("sourcekit")
+        vim.lsp.enable("ruff", false)
 
         vim.keymap.set("n", "gof", vim.diagnostic.open_float, { desc = "Open Diagnostic Float" })
     end

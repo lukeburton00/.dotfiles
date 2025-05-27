@@ -12,6 +12,9 @@ return {
             go = { "golangcilint" },
             cpp = { "cpplint" },
             ruby = { "rubocop" },
+            python = { "ruff" },
+            javascript = { "eslint_d" },
+            typescript = { "eslint_d" },
         }
 
         require("mason-nvim-lint").setup({
