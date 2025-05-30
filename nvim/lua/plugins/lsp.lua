@@ -32,6 +32,8 @@ return {
 		vim.lsp.enable("sourcekit")
 		vim.lsp.enable("ruff", false)
 
-		vim.keymap.set("n", "gof", vim.diagnostic.open_float, { desc = "Open Diagnostic Float" })
+		vim.keymap.set("n", "gk", vim.diagnostic.open_float, { desc = "Open Diagnostic Float" })
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
 	end,
 }
