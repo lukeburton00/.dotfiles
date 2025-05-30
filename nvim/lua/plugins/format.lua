@@ -1,28 +1,31 @@
 return {
-    "zapling/mason-conform.nvim",
-    dependencies = {
-        "williamboman/mason.nvim",
-        { "stevearc/conform.nvim", opts = {} }
-    },
+	"zapling/mason-conform.nvim",
+	dependencies = {
+		"williamboman/mason.nvim",
+		{ "stevearc/conform.nvim", opts = {} },
+	},
 
-    config = function()
-        require("conform").setup({
-            formatters_by_ft = {
-                go = { "gofumpt" },
-                ruby = { "rubocop" },
-                python = { "black" }
-            },
-            format_on_save = {
-                timeout_ms = 500,
-                lsp_format = "fallback",
-            },
-        })
+	config = function()
+		require("conform").setup({
+			formatters_by_ft = {
+				lua = { "stylua" },
+				go = { "gofumpt" },
+				ruby = { "rubocop" },
+				python = { "black" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+			},
+			default_format_opts = {
+				lsp_format = "fallback",
+			},
+		})
 
-        require("mason-conform").setup({
-            ignore_install = {
-                "rubocop",
-            }
-        })
-    end
+		vim.keymap.set({ "n", "v" }, "<leader>cf", require("conform").format, { desc = "Format file" })
 
+		require("mason-conform").setup({
+			ignore_install = {
+				"rubocop",
+			},
+		})
+	end,
 }

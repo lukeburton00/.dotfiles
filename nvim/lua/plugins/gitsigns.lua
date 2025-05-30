@@ -1,12 +1,12 @@
 return {
-    "lewis6991/gitsigns.nvim",
+	"lewis6991/gitsigns.nvim",
 
-    event = 'VeryLazy',
+	event = "VeryLazy",
 
-    config = function()
-        require("gitsigns").setup({
-            current_line_blame = true,
-            numhl = true
-        })
-    end
+	config = function()
+		require("gitsigns").setup({
+			current_line_blame = true,
+			numhl = true,
+		})
+	end,
 }
