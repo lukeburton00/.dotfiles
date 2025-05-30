@@ -1,18 +1,54 @@
 return {
 	"alexghergh/nvim-tmux-navigation",
 
-	config = function()
-		local nvim_tmux_nav = require("nvim-tmux-navigation")
 
-		nvim_tmux_nav.setup({
-			disable_when_zoomed = true, -- defaults to false
-		})
+    keys = {
+        {
+            "<C-h>",
+            function() require("nvim-tmux-navigation").NvimTmuxNavigateLeft() end,
+            desc = "Tmux Navigate Left",
+            mode = "n"
+        },
+        {
+            "<C-j>",
+            function() require("nvim-tmux-navigation").NvimTmuxNavigateDown() end,
+            desc = "Tmux Navigate Down",
+            mode = "n"
+        },
+        {
+            "<C-k>",
+            function() require("nvim-tmux-navigation").NvimTmuxNavigateUp() end,
+            desc = "Tmux Navigate Up",
+            mode = "n"
+        },
+        {
+            "<C-l>",
+            function() require("nvim-tmux-navigation").NvimTmuxNavigateRight() end,
+            desc = "Tmux Navigate Right",
+            mode = "n"
+        },
+        {
+            "<C-\\>",
+            function() require("nvim-tmux-navigation").NvimTmuxNavigateLastActive() end,
+            desc = "Tmux Navigate Last Active",
+            mode = "n"
+        },
+        {
+            "<C-Space>",
+            function() require("nvim-tmux-navigation").NvimTmuxNavigateNext() end,
+            desc = "Tmux Navigate Next",
+            mode = "n"
+        },
+    },
 
-		vim.keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
-		vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
-		vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
-		vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
-		vim.keymap.set("n", "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
-		vim.keymap.set("n", "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
-	end,
+
+    config = function()
+        local nvim_tmux_nav = require("nvim-tmux-navigation")
+
+        nvim_tmux_nav.setup({
+            disable_when_zoomed = true, -- defaults to false
+        })
+
+
+    end,
 }

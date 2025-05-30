@@ -7,12 +7,17 @@ return {
 
 	opts = {},
 
+    event = "VeryLazy",
+
 	config = function()
+		require("mason").setup()
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				go = { "gofumpt" },
 				ruby = { "rubocop" },
+                c = { "clang-format" },
+                cpp = { "clang-format" },
 				python = { "black" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },

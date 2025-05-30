@@ -4,7 +4,7 @@ return {
 		"nvim-lua/plenary.nvim",
 	},
 
-	event = "VeryLazy",
+	event = "InsertEnter",
 
 	config = function()
 		require("codeium").setup({

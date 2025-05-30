@@ -5,6 +5,8 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 	},
 
+	event = "VeryLazy",
+
 	config = function()
 		require("mason").setup()
 		require("mason-lspconfig").setup({
@@ -16,11 +18,14 @@ return {
 				"clangd",
 				"gopls",
 				"angularls",
+				"ts_ls",
+				"html",
+				"solargraph",
 			},
 		})
 
 		vim.lsp.config("*", {
-			capabilities = require("blink.cmp").get_lsp_capabilities(capabilities),
+			capabilities = require("blink.cmp").get_lsp_capabilities(),
 		})
 
 		vim.lsp.config("sourcekit", {

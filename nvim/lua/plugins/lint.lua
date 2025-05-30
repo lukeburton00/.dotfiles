@@ -5,23 +5,19 @@ return {
 		"rshkarin/mason-nvim-lint",
 	},
 
-	event = "VeryLazy",
+    event = "VeryLazy",
 
 	config = function()
 		require("lint").linters_by_ft = {
 			go = { "golangcilint" },
+			c = { "cpplint" },
 			cpp = { "cpplint" },
-			ruby = { "rubocop" },
 			python = { "ruff" },
 			javascript = { "eslint_d" },
 			typescript = { "eslint_d" },
 		}
 
-		require("mason-nvim-lint").setup({
-			ignore_install = {
-				"rubocop",
-			},
-		})
+		require("mason-nvim-lint").setup()
 
 		vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
 			callback = function()

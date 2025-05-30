@@ -6,6 +6,8 @@ return {
 		{ "igorlfs/nvim-dap-view", opts = { winbar = { controls = { enabled = true } } } },
 	},
 
+    event = "VeryLazy",
+
 	keys = {
 		{
 			"<leader>db",
@@ -22,9 +24,12 @@ return {
 	config = function()
 		require("mason").setup()
 		require("mason-nvim-dap").setup({
+			ensure_installed = {
+                "debugpy",
+                "delve",
+            },
+            automatic_installation = false,
 			handlers = {},
-			ensure_installed = {},
-			automatic_installation = false,
 		})
 	end,
 }
