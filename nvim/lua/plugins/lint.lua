@@ -5,9 +5,10 @@ return {
 		"rshkarin/mason-nvim-lint",
 	},
 
-    event = "VeryLazy",
+	event = "VeryLazy",
 
 	config = function()
+		require("mason").setup()
 		require("lint").linters_by_ft = {
 			go = { "golangcilint" },
 			c = { "cpplint" },
@@ -15,6 +16,7 @@ return {
 			python = { "ruff" },
 			javascript = { "eslint_d" },
 			typescript = { "eslint_d" },
+			eruby = { "erb_lint" },
 		}
 
 		require("mason-nvim-lint").setup()
