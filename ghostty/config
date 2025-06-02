@@ -1,31 +1,26 @@
 font-size = 18
 font-feature = -calt, -liga, -dlig
 
-background = 181818
-foreground = d8d8d8
+background = 101117
+foreground = e5e9f0
 
-selection-background = 383838
-selection-foreground = 181818
+selection-background = 3b4252
+selection-foreground = eceff4
 
-palette = 0=#181818
-palette = 1=#ab4642
-palette = 2=#a1b56c
-palette = 3=#f7ca88
-palette = 4=#7cafc2
-palette = 5=#ba8baf
-palette = 6=#86c1b9
-palette = 7=#d8d8d8
-palette = 8=#585858
-palette = 9=#ab4642
-palette = 10=#a1b56c
-palette = 11=#f7ca88
-palette = 12=#7cafc2
-palette = 13=#ba8baf
-palette = 14=#86c1b9
-palette = 15=#f8f8f8
-palette = 16=#dc9656
-palette = 17=#a16946
-palette = 18=#282828
-palette = 19=#383838
-palette = 20=#b8b8b8
-palette = 21=#e8e8e8
+palette = 0=#101117
+palette = 1=#bf616a
+palette = 2=#a3be8c
+palette = 3=#ebcb8b
+palette = 4=#81a1c1
+palette = 5=#b48ead
+palette = 6=#88c0d0
+palette = 7=#e5e9f0
+palette = 8=#4c566a
+palette = 9=#bf616a
+palette = 10=#a3be8c
+palette = 11=#ebcb8b
+palette = 12=#81a1c1
+palette = 13=#b48ead
+palette = 14=#8fbcbb
+palette = 15=#eceff4
+
