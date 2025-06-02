@@ -1,35 +1,65 @@
 return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
-		"williamboman/mason.nvim",
-		"jay-babu/mason-nvim-dap.nvim",
-		{ "igorlfs/nvim-dap-view", opts = { winbar = { controls = { enabled = true } } } },
+		"igorlfs/nvim-dap-view",
+		"leoluz/nvim-dap-go",
 	},
-
-    event = "VeryLazy",
 
 	keys = {
 		{
-			"<leader>db",
-			mode = { "n", "v" },
-			"<cmd>DapToggleBreakpoint<cr>",
+			"<leader>dd",
+			"<cmd>DapViewToggle<cr>",
+			desc = "Dap View Toggle",
 		},
 		{
-			"<leader>dv",
-			mode = { "n", "v" },
-			"<cmd>DapViewToggle<cr>",
+			"<leader>dc",
+			"<cmd>DapContinue<cr>",
+			desc = "Dap Continue",
+		},
+		{
+			"<leader>db",
+			"<cmd>DapToggleBreakpoint<cr>",
+			desc = "Dap Toggle Breakpoint",
+		},
+		{
+			"<leader>do",
+			"<cmd>DapStepOver<cr>",
+			desc = "Dap Step Over",
+		},
+		{
+			"<leader>di",
+			"<cmd>DapStepInto<cr>",
+			desc = "Dap Step Into",
+		},
+		{
+			"<leader>dO",
+			"<cmd>DapStepOut<cr>",
+			desc = "Dap Step Out",
 		},
 	},
 
 	config = function()
-		require("mason").setup()
-		require("mason-nvim-dap").setup({
-			ensure_installed = {
-                "debugpy",
-                "delve",
-            },
-            automatic_installation = false,
-			handlers = {},
+		require("dap-view").setup()
+		require("dap-go").setup()
+		local dap, dv = require("dap"), require("dap-view")
+		dap.listeners.before.attach["dap-view-config"] = function()
+			dv.open()
+		end
+		dap.listeners.before.launch["dap-view-config"] = function()
+			dv.open()
+		end
+		dap.listeners.before.event_terminated["dap-view-config"] = function()
+			dv.close()
+		end
+		dap.listeners.before.event_exited["dap-view-config"] = function()
+			dv.close()
+		end
+
+		vim.api.nvim_create_autocmd({ "FileType" }, {
+			pattern = { "dap-view", "dap-view-term", "dap-repl" }, -- dap-repl is set by `nvim-dap`
+			callback = function(evt)
+				vim.keymap.set("n", "q", "<C-w>q", { buffer = evt.buf })
+			end,
 		})
 	end,
 }
