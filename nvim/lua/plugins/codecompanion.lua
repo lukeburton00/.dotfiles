@@ -9,6 +9,21 @@ return {
 
 	config = function()
 		require("codecompanion").setup({
+			display = {
+				diff = {
+					enabled = true,
+					provider = "mini_diff", -- Use 'mini_diff' for inline diffs
+					layout = "vertical", -- Options: 'vertical' or 'horizontal'
+					opts = {
+						"internal",
+						"filler",
+						"closeoff",
+						"algorithm:patience",
+						"followwrap",
+						"linematch:120",
+					},
+				},
+			},
 			strategies = {
 				chat = {
 					adapter = "openai",

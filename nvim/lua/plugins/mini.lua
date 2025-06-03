@@ -5,11 +5,11 @@ return {
 	event = "VeryLazy",
 
 	config = function()
-		-- Modules
 		require("mini.ai").setup()
 		require("mini.surround").setup()
 		require("mini.move").setup()
 		require("mini.pairs").setup()
+		require("mini.diff").setup()
 
 		require("mini.icons").setup()
 		MiniIcons.mock_nvim_web_devicons()
