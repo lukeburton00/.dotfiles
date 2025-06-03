@@ -3,7 +3,7 @@ return {
 
 	event = "VeryLazy",
 
-	branch = "main",
+	branch = "master",
 
 	config = function()
 		require("nvim-treesitter.configs").setup({
