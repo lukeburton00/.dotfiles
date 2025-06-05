@@ -1,30 +1,30 @@
 return {
-	"mfussenegger/nvim-lint",
-	dependencies = {
-		"williamboman/mason.nvim",
-		"rshkarin/mason-nvim-lint",
-	},
+    "mfussenegger/nvim-lint",
+    dependencies = {
+        "williamboman/mason.nvim",
+        "rshkarin/mason-nvim-lint",
+    },
 
-	event = "VeryLazy",
+    event = "VeryLazy",
 
-	config = function()
-		require("mason").setup()
-		require("lint").linters_by_ft = {
-			go = { "golangcilint" },
-			c = { "cpplint" },
-			cpp = { "cpplint" },
-			python = { "ruff" },
-			javascript = { "eslint_d" },
-			typescript = { "eslint_d" },
-			eruby = { "erb_lint" },
-		}
+    config = function()
+        require("mason").setup()
+        require("lint").linters_by_ft = {
+            go = { "golangcilint" },
+            c = { "cpplint" },
+            cpp = { "cpplint" },
+            python = { "ruff" },
+            javascript = { "eslint_d" },
+            typescript = { "eslint_d" },
+            eruby = { "erb_lint" },
+        }
 
-		require("mason-nvim-lint").setup()
+        require("mason-nvim-lint").setup()
 
-		vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
-			callback = function()
-				require("lint").try_lint()
-			end,
-		})
-	end,
+        vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
+            callback = function()
+                require("lint").try_lint()
+            end,
+        })
+    end,
 }

@@ -1,46 +1,56 @@
 return {
-	"alexghergh/nvim-tmux-navigation",
-
+    "alexghergh/nvim-tmux-navigation",
 
     keys = {
         {
             "<C-h>",
-            function() require("nvim-tmux-navigation").NvimTmuxNavigateLeft() end,
+            function()
+                require("nvim-tmux-navigation").NvimTmuxNavigateLeft()
+            end,
             desc = "Tmux Navigate Left",
-            mode = "n"
+            mode = "n",
         },
         {
             "<C-j>",
-            function() require("nvim-tmux-navigation").NvimTmuxNavigateDown() end,
+            function()
+                require("nvim-tmux-navigation").NvimTmuxNavigateDown()
+            end,
             desc = "Tmux Navigate Down",
-            mode = "n"
+            mode = "n",
         },
         {
             "<C-k>",
-            function() require("nvim-tmux-navigation").NvimTmuxNavigateUp() end,
+            function()
+                require("nvim-tmux-navigation").NvimTmuxNavigateUp()
+            end,
             desc = "Tmux Navigate Up",
-            mode = "n"
+            mode = "n",
         },
         {
             "<C-l>",
-            function() require("nvim-tmux-navigation").NvimTmuxNavigateRight() end,
+            function()
+                require("nvim-tmux-navigation").NvimTmuxNavigateRight()
+            end,
             desc = "Tmux Navigate Right",
-            mode = "n"
+            mode = "n",
         },
         {
             "<C-\\>",
-            function() require("nvim-tmux-navigation").NvimTmuxNavigateLastActive() end,
+            function()
+                require("nvim-tmux-navigation").NvimTmuxNavigateLastActive()
+            end,
             desc = "Tmux Navigate Last Active",
-            mode = "n"
+            mode = "n",
         },
         {
             "<C-Space>",
-            function() require("nvim-tmux-navigation").NvimTmuxNavigateNext() end,
+            function()
+                require("nvim-tmux-navigation").NvimTmuxNavigateNext()
+            end,
             desc = "Tmux Navigate Next",
-            mode = "n"
+            mode = "n",
         },
     },
-
 
     config = function()
         local nvim_tmux_nav = require("nvim-tmux-navigation")
@@ -48,7 +58,5 @@ return {
         nvim_tmux_nav.setup({
             disable_when_zoomed = true, -- defaults to false
         })
-
-
     end,
 }

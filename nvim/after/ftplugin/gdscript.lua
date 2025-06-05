@@ -2,9 +2,7 @@ local port = tonumber(os.getenv("GDScript_Port")) or 6005
 local cmd = vim.lsp.rpc.connect("127.0.0.1", port)
 
 -- Use platform-specific pipe path
-local pipe = vim.fn.has("win32")
-and "\\\\.\\pipe\\godot.pipe"
-or "/tmp/godot.pipe"
+local pipe = vim.fn.has("win32") and "\\\\.\\pipe\\godot.pipe" or "/tmp/godot.pipe"
 
 vim.lsp.start({
     name = "Godot",

@@ -1,45 +1,45 @@
 return {
-	"neovim/nvim-lspconfig",
-	dependencies = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-	},
+    "neovim/nvim-lspconfig",
+    dependencies = {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+    },
 
-	event = "VeryLazy",
+    event = "VeryLazy",
 
-	config = function()
-		require("mason").setup()
-		require("mason-lspconfig").setup({
-			ensure_installed = {
-				"lua_ls",
-				"pyright",
-				"rust_analyzer",
-				"zls",
-				"clangd",
-				"gopls",
-				"angularls",
-				"ts_ls",
-				"html",
-				"ruby_lsp",
-				"csharp_ls",
-			},
-		})
+    config = function()
+        require("mason").setup()
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                "lua_ls",
+                "pyright",
+                "rust_analyzer",
+                "zls",
+                "clangd",
+                "gopls",
+                "angularls",
+                "ts_ls",
+                "html",
+                "ruby_lsp",
+                "csharp_ls",
+            },
+        })
 
-		vim.lsp.config("*", {
-			capabilities = require("blink.cmp").get_lsp_capabilities(),
-		})
+        vim.lsp.config("*", {
+            capabilities = require("blink.cmp").get_lsp_capabilities(),
+        })
 
-		vim.lsp.config("sourcekit", {
-			cmd = {
-				"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
-			},
-		})
+        vim.lsp.config("sourcekit", {
+            cmd = {
+                "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+            },
+        })
 
-		vim.lsp.enable("sourcekit")
-		vim.lsp.enable("ruff", false)
+        vim.lsp.enable("sourcekit")
+        vim.lsp.enable("ruff", false)
 
-		vim.keymap.set("n", "gk", vim.diagnostic.open_float, { desc = "Open Diagnostic Float" })
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
-	end,
+        vim.keymap.set("n", "gk", vim.diagnostic.open_float, { desc = "Open Diagnostic Float" })
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
+    end,
 }

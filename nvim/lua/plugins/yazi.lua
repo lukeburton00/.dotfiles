@@ -1,19 +1,19 @@
 return {
-	"mikavilpas/yazi.nvim",
+    "mikavilpas/yazi.nvim",
 
-	keys = {
-		{
-			"<leader>y",
-			mode = { "n", "v" },
-			"<cmd>Yazi<cr>",
-			desc = "Open yazi at the current file",
-		},
-	},
+    keys = {
+        {
+            "<leader>y",
+            mode = { "n", "v" },
+            "<cmd>Yazi<cr>",
+            desc = "Open yazi at the current file",
+        },
+    },
 
-	opts = {
-		open_for_directories = false,
-		keymaps = {
-			show_help = "<f1>",
-		},
-	},
+    opts = {
+        open_for_directories = false,
+        keymaps = {
+            show_help = "<f1>",
+        },
+    },
 }

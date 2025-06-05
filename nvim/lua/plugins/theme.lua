@@ -5,5 +5,5 @@ return {
 
     config = function()
         vim.cmd.colorscheme("kanso-zen")
-    end
+    end,
 }
