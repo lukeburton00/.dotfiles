@@ -1,3 +1,5 @@
+. $HOME\Documents\Powershell\env.ps1
+
 # Renders background colors correctly
 $PSStyle.FileInfo.Directory = "`e[96;1m"
 
@@ -12,3 +14,4 @@ function y {
 }
 
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
+Invoke-Expression (&starship init powershell)
