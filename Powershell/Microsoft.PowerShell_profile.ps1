@@ -13,5 +13,6 @@ function y {
     Remove-Item -Path $tmp
 }
 
+Import-VisualStudioEnvironment
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 Invoke-Expression (&starship init powershell)
