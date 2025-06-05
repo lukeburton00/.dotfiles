@@ -1,26 +1,25 @@
 font-size = 18
 font-feature = -calt, -liga, -dlig
 
-background = 101117
-foreground = e5e9f0
+palette = 0=#090E13
+palette = 1=#c4746e
+palette = 2=#8a9a7b
+palette = 3=#c4b28a
+palette = 4=#8ba4b0
+palette = 5=#a292a3
+palette = 6=#8ea4a2
+palette = 7=#c8c093
+palette = 8=#a4a7a4
+palette = 9=#e46876
+palette = 10=#87a987
+palette = 11=#e6c384
+palette = 12=#7fb4ca
+palette = 13=#938aa9
+palette = 14=#7aa89f
+palette = 15=#c5c9c7
 
-selection-background = 3b4252
-selection-foreground = eceff4
-
-palette = 0=#101117
-palette = 1=#bf616a
-palette = 2=#a3be8c
-palette = 3=#ebcb8b
-palette = 4=#81a1c1
-palette = 5=#b48ead
-palette = 6=#88c0d0
-palette = 7=#e5e9f0
-palette = 8=#4c566a
-palette = 9=#bf616a
-palette = 10=#a3be8c
-palette = 11=#ebcb8b
-palette = 12=#81a1c1
-palette = 13=#b48ead
-palette = 14=#8fbcbb
-palette = 15=#eceff4
-
+background = #090E13
+foreground = #c5c9c7
+cursor-color = #c5c9c7
+selection-background = #24262D
+selection-foreground = #c5c9c7

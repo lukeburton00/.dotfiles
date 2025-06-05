@@ -2,41 +2,44 @@ local wezterm = require 'wezterm'
 local remaps = require 'remaps'
 
 local config = {}
+config.force_reverse_video_cursor = true
 config.font = wezterm.font('JetBrains Mono')
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 config.color_scheme = 'Default Dark (base16)'
 local custom_nord = {
-    foreground = "#fbffff",
-    background = "#101117",
-    cursor_bg = "#fbffff",
-    cursor_border = "#fbffff",
-    cursor_fg = "#101117",
-    selection_bg = "#465272",
-    selection_fg = "#fbffff",
+    foreground = "#C5C9C7",
+    background = "#090E13",
+
+    cursor_bg = "#090E13",
+    cursor_fg = "#C5C9C7",
+    cursor_border = "#C5C9C7",
+
+    selection_fg = "#C5C9C7",
+    selection_bg = "#24262D",
+
+    scrollbar_thumb = "#24262D",
+    split = "#24262D",
+
     ansi = {
-        "#101117",
-        "#f97081",
-        "#c3eeb8",
-        "#ffe07a",
-        "#84b8f3",
-        "#e698e1",
-        "#acf2ff",
-        "#fbffff",
+        "#090E13",
+        "#C4746E",
+        "#8A9A7B",
+        "#C4B28A",
+        "#8BA4B0",
+        "#A292A3",
+        "#8EA4A2",
+        "#A4A7A4",
     },
     brights = {
-        "#465272",
-        "#f97081",
-        "#c3eeb8",
-        "#ffe07a",
-        "#84b8f3",
-        "#e698e1",
-        "#72a5f3",
-        "#ffffff",
-    },
-    tab_bar = {
-        background = "#465272",
-        inactive_tab_edge = "#4f5880",
+        "#A4A7A4",
+        "#E46876",
+        "#87A987",
+        "#E6C384",
+        "#7FB4CA",
+        "#938AA9",
+        "#7AA89F",
+        "#C5C9C7",
     },
 }
 
