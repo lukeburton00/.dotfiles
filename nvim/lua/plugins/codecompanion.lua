@@ -12,8 +12,8 @@ return {
             display = {
                 diff = {
                     enabled = true,
-                    provider = "mini_diff", -- Use 'mini_diff' for inline diffs
-                    layout = "vertical", -- Options: 'vertical' or 'horizontal'
+                    provider = "mini_diff",
+                    layout = "vertical",
                     opts = {
                         "internal",
                         "filler",
