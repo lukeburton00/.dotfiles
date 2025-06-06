@@ -5,7 +5,7 @@ return {
         "rshkarin/mason-nvim-lint",
     },
 
-    event = "VeryLazy",
+    event = "BufReadPre",
 
     config = function()
         require("mason").setup()
@@ -17,9 +17,12 @@ return {
             javascript = { "eslint_d" },
             typescript = { "eslint_d" },
             eruby = { "erb_lint" },
+            swift = { "swiftlint" },
         }
 
-        require("mason-nvim-lint").setup()
+        require("mason-nvim-lint").setup({
+            ignore_install = { "swiftlint" },
+        })
 
         vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
             callback = function()

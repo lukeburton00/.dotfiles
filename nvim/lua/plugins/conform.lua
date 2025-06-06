@@ -7,7 +7,7 @@ return {
 
     opts = {},
 
-    event = "VeryLazy",
+    event = "BufWritePre",
 
     config = function()
         require("mason").setup()

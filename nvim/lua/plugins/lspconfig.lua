@@ -5,7 +5,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
     },
 
-    event = "VeryLazy",
+    event = "BufReadPre",
 
     config = function()
         require("mason").setup()

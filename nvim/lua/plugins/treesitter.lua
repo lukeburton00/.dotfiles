@@ -1,7 +1,7 @@
 return {
     "nvim-treesitter/nvim-treesitter",
 
-    event = "VeryLazy",
+    event = "BufReadPre",
 
     branch = "master",
 

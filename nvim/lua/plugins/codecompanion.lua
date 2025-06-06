@@ -3,10 +3,14 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
+        "echasnovski/mini.nvim",
     },
-
-    event = "VeryLazy",
-
+    cmd = { "CodeCompanion" },
+    keys = {
+        { mode = { "n", "v" }, "<leader>cc", "<cmd>CodeCompanion<cr>",            desc = "CodeCompanion" },
+        { mode = { "n", "v" }, "<leader>ct", "<cmd>CodeCompanionChat Toggle<cr>", desc = "CodeCompanion Chat" },
+        { mode = "v",          "ga",         "<cmd>CodeCompanionChat Add<cr>",    desc = "CodeCompanion Chat Add" },
+    },
     config = function()
         require("codecompanion").setup({
             display = {
@@ -37,8 +41,5 @@ return {
         vim.keymap.set({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionActions<cr>")
         vim.keymap.set({ "n", "v" }, "<leader>ct", "<cmd>CodeCompanionChat Toggle<cr>")
         vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>")
-
-        -- Expand 'cc' into 'CodeCompanion' in the command line
-        vim.cmd([[cab cc CodeCompanion]])
     end,
 }

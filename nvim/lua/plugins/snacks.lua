@@ -7,6 +7,8 @@ return {
         quickfile = { enabled = true },
         input = { enabled = true },
         lazygit = { enabled = true },
+        dashboard = { enabled = true },
+        zen = { enabled = true },
         picker = {
             win = {
                 input = {
@@ -17,6 +19,14 @@ return {
                 },
             },
         },
+
+        styles = {
+            zen = {
+                backdrop = {
+                    transparent = false,
+                }
+            },
+        }
     },
 
     keys = function()
@@ -70,6 +80,13 @@ return {
                     Snacks.lazygit()
                 end,
                 desc = "LazyGit",
+            },
+            {
+                "<leader>z",
+                function()
+                    Snacks.zen()
+                end,
+                desc = "Zen",
             },
         }
     end,
