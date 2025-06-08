@@ -1,12 +1,11 @@
-local wezterm = require 'wezterm'
-local remaps = require 'remaps'
+local wezterm = require "wezterm"
 
 local config = {}
 config.force_reverse_video_cursor = true
-config.font = wezterm.font('JetBrains Mono')
+config.font = wezterm.font("JetBrains Mono")
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
-config.color_scheme = 'Default Dark (base16)'
+config.color_scheme = "Default Dark (base16)"
 local custom_nord = {
     foreground = "#C5C9C7",
     background = "#090E13",
@@ -46,8 +45,6 @@ local custom_nord = {
 config.color_schemes = { ["Custom Nord"] = custom_nord }
 config.color_scheme = "Custom Nord"
 
-config.keys = remaps.keys
-
 config.tab_bar_at_bottom = true
 config.hide_tab_bar_if_only_one_tab = true
 
@@ -56,7 +53,7 @@ config.max_fps = 240
 config.font_size = 14
 
 if wezterm.target_triple:find("windows") ~= nil then
-    config.default_prog = { 'pwsh.exe' }
+    config.default_prog = { "pwsh.exe" }
 end
 
 return config
