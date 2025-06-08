@@ -1,5 +1,4 @@
 local wezterm = require 'wezterm'
-local remaps = require 'remaps'
 
 local config = {}
 config.force_reverse_video_cursor = true
@@ -45,8 +44,6 @@ local custom_nord = {
 
 config.color_schemes = { ["Custom Nord"] = custom_nord }
 config.color_scheme = "Custom Nord"
-
-config.keys = remaps.keys
 
 config.tab_bar_at_bottom = true
 config.hide_tab_bar_if_only_one_tab = true
