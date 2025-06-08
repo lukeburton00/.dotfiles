@@ -3,6 +3,10 @@
 # Renders background colors correctly
 $PSStyle.FileInfo.Directory = "`e[96;1m"
 
+Set-Alias -Name l -Value Get-ChildItem
+Set-Alias -Name vi -Value nvim
+Set-Alias -Name vim -Value nvim
+
 function y {
     $tmp = [System.IO.Path]::GetTempFileName()
     yazi $args --cwd-file="$tmp"
