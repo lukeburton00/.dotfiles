@@ -15,6 +15,12 @@ return {
                     keys = {
                         ["<Tab>"] = { "list_down", mode = { "i", "n" } },
                         ["<S-Tab>"] = { "list_up", mode = { "i", "n" } },
+                        ["<leader>qf"] = {
+                            "qflist",
+                            mode = { "n", "i" },
+                            desc = "Send all to quickfix"
+                        },
+
                     },
                 },
             },
@@ -73,6 +79,14 @@ return {
                     Snacks.picker.help()
                 end,
                 desc = "Help Pages",
+            },
+            {
+                "<leader>qf",
+                function()
+                    local picker = Snacks.picker.get()
+                    Snacks.picker.actions.qflist(picker)
+                end,
+                desc = "Help Tags",
             },
             {
                 "<leader>g",
