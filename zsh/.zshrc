@@ -17,6 +17,7 @@ function y() {
 }
 
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export PODMAN_COMPOSE_PROVIDER=podman
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
