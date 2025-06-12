@@ -34,6 +34,7 @@ return {
                 return { timeout_ms = 500 }
             end,
         })
+        require("mason-conform").setup()
 
         -- Enable or disable format-on-save
         vim.api.nvim_create_user_command("FormatDisable", function()
