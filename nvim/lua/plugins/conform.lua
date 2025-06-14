@@ -4,9 +4,6 @@ return {
         "williamboman/mason.nvim",
         "zapling/mason-conform.nvim",
     },
-
-    opts = {},
-
     event = "BufWritePre",
 
     config = function()
