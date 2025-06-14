@@ -3,7 +3,7 @@ return {
     lazy = false,
 
     keys = {
-        { "<leader>-", "<CMD>Oil<CR>", desc = "Open parent directory" },
+        { mode = { "n" }, "<leader>-", "<CMD>Oil<CR>", desc = "Open parent directory" },
     },
 
     opts = {
