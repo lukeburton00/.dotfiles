@@ -103,35 +103,4 @@ return {
             },
         }
     end,
-
-    opts = {
-        quickfile = { enabled = true },
-        input = { enabled = true },
-        lazygit = { enabled = true },
-        dashboard = { enabled = true },
-        zen = { enabled = true },
-        picker = {
-            win = {
-                input = {
-                    keys = {
-                        ["<Tab>"] = { "list_down", mode = { "i", "n" } },
-                        ["<S-Tab>"] = { "list_up", mode = { "i", "n" } },
-                        ["<leader>qf"] = {
-                            "qflist",
-                            mode = { "n", "i" },
-                            desc = "Send all to quickfix",
-                        },
-                    },
-                },
-            },
-        },
-
-        styles = {
-            zen = {
-                backdrop = {
-                    transparent = false,
-                },
-            },
-        },
-    },
 }
