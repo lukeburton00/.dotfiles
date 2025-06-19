@@ -52,7 +52,5 @@ return {
         },
     },
 
-    opts = {
-        disable_when_zoomed = true, -- defaults to false
-    },
+    opts = {},
 }
