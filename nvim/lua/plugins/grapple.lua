@@ -1,5 +1,8 @@
 return {
     "cbochs/grapple.nvim",
+    dependencies = {
+        "echasnovski/mini.nvim",
+    },
 
     opts = {
         scope = "git",

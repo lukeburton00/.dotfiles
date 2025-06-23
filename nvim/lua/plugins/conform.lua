@@ -2,12 +2,10 @@ return {
     "stevearc/conform.nvim",
     dependencies = {
         "williamboman/mason.nvim",
-        "zapling/mason-conform.nvim",
     },
     event = "BufWritePre",
 
     config = function()
-        require("mason").setup()
         require("conform").setup({
             formatters_by_ft = {
                 lua = { "stylua" },
@@ -31,7 +29,6 @@ return {
                 return { timeout_ms = 500 }
             end,
         })
-        require("mason-conform").setup()
 
         -- Enable or disable format-on-save
         vim.api.nvim_create_user_command("FormatDisable", function()
