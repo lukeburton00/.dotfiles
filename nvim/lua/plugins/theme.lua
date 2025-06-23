@@ -1,8 +1,20 @@
+-- return {
+--     "dgox16/oldworld.nvim",
+--     config = function()
+--         vim.cmd.colorscheme("oldworld")
+--     end,
+-- }
+
+-- return {
+--     "projekt0n/github-nvim-theme",
+--     config = function()
+--         vim.cmd.colorscheme("github_dark_default")
+--     end
+-- }
+
 return {
-    "webhooked/kanso.nvim",
-    lazy = false,
-    priority = 1000,
-    init = function()
-        vim.cmd.colorscheme("kanso-zen")
-    end,
+    "vague2k/vague.nvim",
+    config = function()
+        vim.cmd.colorscheme("vague")
+    end
 }
