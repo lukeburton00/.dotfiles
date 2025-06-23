@@ -4,6 +4,16 @@ return {
 
     event = "BufReadPre",
 
+    keys = {
+        {
+            "-",
+            function()
+                require("mini.files").open()
+            end,
+            desc = "Toggle Mini Files",
+        },
+    },
+
     config = function()
         require("mini.ai").setup()
         require("mini.surround").setup()
@@ -16,6 +26,8 @@ return {
 
         require("mini.statusline").setup()
         require("mini.cursorword").setup()
+
+        require("mini.files").setup()
 
         local miniclue = require("mini.clue")
         miniclue.setup({
