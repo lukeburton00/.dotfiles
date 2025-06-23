@@ -2,7 +2,6 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-
     opts = {
         quickfile = { enabled = true },
         input = { enabled = true },
@@ -33,7 +32,6 @@ return {
             },
         },
     },
-
     keys = function()
         local Snacks = require("snacks")
         return {

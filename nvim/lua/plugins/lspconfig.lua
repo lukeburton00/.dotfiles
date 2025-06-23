@@ -3,9 +3,7 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
     },
-
     event = "BufReadPre",
-
     config = function()
         vim.lsp.config("*", {
             capabilities = require("blink.cmp").get_lsp_capabilities(),

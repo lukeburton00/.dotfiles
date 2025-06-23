@@ -1,6 +1,6 @@
 return {
     "alexghergh/nvim-tmux-navigation",
-
+    opts = {},
     keys = {
         {
             "<C-h>",
@@ -51,6 +51,4 @@ return {
             mode = "n",
         },
     },
-
-    opts = {},
 }

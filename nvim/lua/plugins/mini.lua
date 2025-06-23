@@ -1,9 +1,7 @@
 return {
     "echasnovski/mini.nvim",
     version = "*",
-
     event = "BufReadPre",
-
     keys = {
         {
             "-",
@@ -13,7 +11,6 @@ return {
             desc = "Toggle Mini Files",
         },
     },
-
     config = function()
         require("mini.ai").setup()
         require("mini.surround").setup()

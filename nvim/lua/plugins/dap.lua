@@ -4,7 +4,6 @@ return {
         "igorlfs/nvim-dap-view",
         "leoluz/nvim-dap-go",
     },
-
     keys = {
         {
             "<leader>dd",
@@ -37,7 +36,6 @@ return {
             desc = "Dap Step Out",
         },
     },
-
     config = function()
         require("dap-view").setup()
         require("dap-go").setup()

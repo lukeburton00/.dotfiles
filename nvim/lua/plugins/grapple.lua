@@ -3,11 +3,9 @@ return {
     dependencies = {
         "echasnovski/mini.nvim",
     },
-
     opts = {
         scope = "git",
     },
-
     keys = {
         { "<leader>e", "<cmd>Grapple toggle_tags<cr>",    desc = "Open Grapple menu" },
         { "<leader>a", "<cmd>Grapple tag<cr>",            desc = "Add Grapple tag" },
