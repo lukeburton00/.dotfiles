@@ -7,7 +7,12 @@ return {
         input = { enabled = true },
         lazygit = { enabled = true },
         dashboard = { enabled = true },
-        zen = { enabled = true },
+        zen = {
+            toggles = {
+                dim = false,
+                git_signs = true,
+            }
+        },
         picker = {
             win = {
                 input = {
