@@ -12,6 +12,7 @@ return {
             python = { "ruff" },
             javascript = { "eslint_d" },
             typescript = { "eslint_d" },
+            ruby = { "rubocop" },
             eruby = { "erb_lint" },
             swift = { "swiftlint" },
         }

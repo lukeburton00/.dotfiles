@@ -25,7 +25,7 @@ return {
             "angularls",
             "ts_ls",
             "html",
-            "solargraph",
+            "ruby_lsp",
             "csharp_ls",
             "sourcekit",
         })
