@@ -12,6 +12,13 @@ return {
             virtual_text = {
                 enabled = true,
                 manual = false,
+                key_bindings = {
+                    accept = "<Right>",
+                    accept_word = false,
+                    accept_line = false,
+                    next = false,
+                    prev = false,
+                }
             },
         })
 
