@@ -18,7 +18,7 @@ return {
         vim.lsp.enable({
             "gopls",
             "lua_ls",
-            "pyright",
+            "basedpyright",
             "rust_analyzer",
             "zls",
             "clangd",
