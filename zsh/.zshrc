@@ -3,6 +3,7 @@ bindkey -v
 
 alias vim="nvim"
 alias vi="nvim"
+alias v="nvim"
 
 alias l="ls -la --color=always | sort -f -k 9,9"
 alias c="clear"
