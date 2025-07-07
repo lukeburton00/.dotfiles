@@ -9,12 +9,6 @@ return {
             capabilities = require("blink.cmp").get_lsp_capabilities(),
         })
 
-        vim.lsp.config("sourcekit", {
-            cmd = {
-                "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
-            },
-        })
-
         vim.lsp.enable({
             "gopls",
             "lua_ls",
