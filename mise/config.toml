@@ -1,0 +1,11 @@
+[tools]
+go = "latest"
+golangci-lint = "2.1.6"
+ninja = "latest"
+node = "24"
+ruby = "3.3.7"
+"vfox:version-fox/vfox-cmake" = "latest"
+
+[settings]
+asdf = false
+vfox = true
