@@ -9,6 +9,7 @@ return {
             go = { "golangcilint" },
             c = { "cpplint" },
             cpp = { "cpplint" },
+            gdscript = { "gdlint" },
             python = { "ruff" },
             javascript = { "eslint_d" },
             typescript = { "eslint_d" },

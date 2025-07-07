@@ -12,6 +12,8 @@ return {
                 ruby = { "rubocop" },
                 c = { "clang-format" },
                 cpp = { "clang-format" },
+                csharp = { "csharpier" },
+                gdscript = { "gdformat" },
                 python = { "black" },
                 javascript = { "prettier" },
                 typescript = { "prettier" },

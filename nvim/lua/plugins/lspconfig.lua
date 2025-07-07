@@ -28,6 +28,7 @@ return {
             "ruby_lsp",
             "csharp_ls",
             "sourcekit",
+            "gdscript",
         })
 
         vim.keymap.set("n", "gk", vim.diagnostic.open_float, { desc = "Open Diagnostic Float" })
