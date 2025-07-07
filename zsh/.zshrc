@@ -1,3 +1,5 @@
+eval "$(~/.local/bin/mise activate zsh)"
+
 export EDITOR="nvim"
 bindkey -v
 
@@ -49,4 +51,3 @@ export PODMAN_COMPOSE_PROVIDER=podman
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
-eval "$(~/.local/bin/mise activate zsh)"
