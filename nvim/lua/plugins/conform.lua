@@ -18,6 +18,7 @@ return {
                 javascript = { "prettier" },
                 typescript = { "prettier" },
                 eruby = { "erb_format" },
+                cmake = { "cmake_format" },
             },
             default_format_opts = {
                 lsp_format = "fallback",

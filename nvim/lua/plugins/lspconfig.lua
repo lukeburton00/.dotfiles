@@ -23,6 +23,7 @@ return {
             "csharp_ls",
             "sourcekit",
             "gdscript",
+            "neocmake"
         })
 
         vim.keymap.set("n", "gk", vim.diagnostic.open_float, { desc = "Open Diagnostic Float" })

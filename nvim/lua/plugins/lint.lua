@@ -16,6 +16,7 @@ return {
             ruby = { "rubocop" },
             eruby = { "erb_lint" },
             swift = { "swiftlint" },
+            cmake = { "cmakelint" },
         }
 
         vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
