@@ -1,11 +1,20 @@
 [tools]
+fd = "latest"
+fzf = "latest"
 go = "latest"
 golangci-lint = "2.1.6"
+lazygit = "latest"
+neovim = "latest"
 ninja = "latest"
 node = "24"
+ripgrep = "latest"
 ruby = "3.3.7"
+starship = "latest"
 "vfox:version-fox/vfox-cmake" = "latest"
+yazi = "latest"
+zoxide = "latest"
 
 [settings]
 asdf = false
 vfox = true
+idiomatic_version_file_enable_tools = ["ruby"]
