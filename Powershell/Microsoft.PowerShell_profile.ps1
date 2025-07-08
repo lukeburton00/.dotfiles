@@ -1,3 +1,7 @@
+$shimPath = "$env:USERPROFILE\AppData\Local\mise\shims"
+$currentPath = [Environment]::GetEnvironmentVariable('Path', 'User')
+$newPath = $currentPath + ";" + $shimPath
+[Environment]::SetEnvironmentVariable('Path', $newPath, 'User')
 . $HOME\Documents\Powershell\env.ps1
 
 # Renders background colors correctly
