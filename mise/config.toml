@@ -2,7 +2,7 @@
 fd = "latest"
 fzf = "latest"
 go = "latest"
-golangci-lint = "2.1.6"
+golangci-lint = "latest"
 lazygit = "latest"
 neovim = "latest"
 ninja = "latest"
