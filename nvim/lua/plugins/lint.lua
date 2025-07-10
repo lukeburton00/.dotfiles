@@ -17,6 +17,7 @@ return {
             eruby = { "erb_lint" },
             swift = { "swiftlint" },
             cmake = { "cmakelint" },
+            yaml = { "yamllint" },
         }
 
         vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {

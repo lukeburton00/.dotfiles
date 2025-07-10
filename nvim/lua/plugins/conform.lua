@@ -19,6 +19,7 @@ return {
                 typescript = { "prettier" },
                 eruby = { "erb_format" },
                 cmake = { "cmake_format" },
+                yaml = { "prettier" },
             },
             default_format_opts = {
                 lsp_format = "fallback",
