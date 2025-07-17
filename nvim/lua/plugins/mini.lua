@@ -6,7 +6,8 @@ return {
         {
             "-",
             function()
-                require("mini.files").open()
+                -- open mini.files on current file
+                require("mini.files").open(vim.api.nvim_buf_get_name(0))
             end,
             desc = "Toggle Mini Files",
         },
@@ -24,7 +25,11 @@ return {
         require("mini.statusline").setup()
         require("mini.cursorword").setup()
 
-        require("mini.files").setup()
+        require("mini.files").setup({
+            windows = {
+                preview = true,
+            },
+        })
 
         local miniclue = require("mini.clue")
         miniclue.setup({
