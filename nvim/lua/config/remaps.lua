@@ -20,8 +20,5 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("n", "Q", "<nop>")
 
--- shift-u to redo
-vim.keymap.set("n", "U", "<C-r>")
-
 vim.keymap.set("n", "<leader>qo", vim.cmd.copen)
 vim.keymap.set("n", "<leader>qc", vim.cmd.cclose)
