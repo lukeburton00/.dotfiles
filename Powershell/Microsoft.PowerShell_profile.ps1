@@ -7,7 +7,9 @@ $newPath = $currentPath + ";" + $shimPath
 # Renders background colors correctly
 $PSStyle.FileInfo.Directory = "`e[96;1m"
 
+Set-Alias -Name c -Value clear
 Set-Alias -Name l -Value Get-ChildItem
+Set-Alias -Name v -Value nvim
 Set-Alias -Name vi -Value nvim
 Set-Alias -Name vim -Value nvim
 
