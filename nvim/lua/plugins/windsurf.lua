@@ -13,15 +13,13 @@ return {
                 enabled = true,
                 manual = false,
                 key_bindings = {
-                    accept = "<Right>",
+                    accept = "<C-f>",
                     accept_word = false,
                     accept_line = false,
                     next = false,
                     prev = false,
-                }
+                },
             },
         })
-
-        vim.g.codeium_model = "SWE-1-lite"
     end,
 }

@@ -5,7 +5,11 @@ return {
     version = "*",
     opts = {
         keymap = {
-            preset = "enter",
+            preset = "none",
+            ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+            ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+            ["<CR>"] = { "select_and_accept", "fallback" },
+            ["<Esc>"] = { "cancel", "fallback" },
         },
         appearance = {
             use_nvim_cmp_as_default = true,
@@ -24,18 +28,15 @@ return {
             documentation = {
                 auto_show = true,
                 auto_show_delay_ms = 500,
-                window = { border = "single" },
+                window = { border = "rounded" },
             },
             ghost_text = { enabled = true },
-            menu = { border = "single" },
+            menu = { border = "rounded" },
         },
-
+        fuzzy = { implementation = "prefer_rust_with_warning" },
         signature = {
             enabled = true,
-            window = {
-                border = "single",
-                show_documentation = true,
-            },
+            window = { border = "rounded", show_documentation = true },
         },
     },
     opts_extend = { "sources.default" },
