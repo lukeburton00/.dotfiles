@@ -1,6 +1,4 @@
 [tools]
-docker-cli = "latest"
-docker-compose = "latest"
 fd = "latest"
 fzf = "latest"
 go = "latest"
