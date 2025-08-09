@@ -9,7 +9,9 @@ return {
             ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
             ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
             ["<CR>"] = { "select_and_accept", "fallback" },
-            ["<Esc>"] = { "cancel", "fallback" },
+            ["<Esc>"] = {
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc><Esc>", true, false, true), "i", false),
+            },
         },
         appearance = {
             use_nvim_cmp_as_default = true,
