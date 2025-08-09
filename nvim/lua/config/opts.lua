@@ -26,6 +26,7 @@ vim.diagnostic.config({ virtual_text = true })
 vim.opt.showmode = false
 
 vim.opt.showtabline = 0
+vim.opt.winborder = "rounded"
 
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
     once = true,
