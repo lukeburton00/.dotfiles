@@ -34,21 +34,5 @@ return {
             desc = "Tmux Navigate Right",
             mode = "n",
         },
-        {
-            "<C-\\>",
-            function()
-                require("nvim-tmux-navigation").NvimTmuxNavigateLastActive()
-            end,
-            desc = "Tmux Navigate Last Active",
-            mode = "n",
-        },
-        {
-            "<C-Space>",
-            function()
-                require("nvim-tmux-navigation").NvimTmuxNavigateNext()
-            end,
-            desc = "Tmux Navigate Next",
-            mode = "n",
-        },
     },
 }
