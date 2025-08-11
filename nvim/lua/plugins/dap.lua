@@ -3,6 +3,7 @@ return {
     dependencies = {
         "igorlfs/nvim-dap-view",
         "leoluz/nvim-dap-go",
+        "julianolf/nvim-dap-lldb",
     },
     keys = {
         {
@@ -39,6 +40,7 @@ return {
     config = function()
         require("dap-view").setup()
         require("dap-go").setup()
+        require("dap-lldb").setup()
         local dap, dv = require("dap"), require("dap-view")
         dap.listeners.before.attach["dap-view-config"] = function()
             dv.open()
