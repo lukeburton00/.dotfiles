@@ -11,9 +11,17 @@ return {
             toggles = {
                 dim = false,
                 git_signs = true,
-            }
+            },
         },
         picker = {
+            sources = {
+                files = {
+                    hidden = true,
+                },
+                grep = {
+                    hidden = true,
+                },
+            },
             win = {
                 input = {
                     keys = {
@@ -81,14 +89,6 @@ return {
                     Snacks.picker.help()
                 end,
                 desc = "Help Pages",
-            },
-            {
-                "<leader>qf",
-                function()
-                    local picker = Snacks.picker.get()
-                    Snacks.picker.actions.qflist(picker)
-                end,
-                desc = "Help Tags",
             },
             {
                 "<leader>g",
