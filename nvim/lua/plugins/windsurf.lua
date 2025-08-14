@@ -3,17 +3,26 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
-
     event = "InsertEnter",
 
+    keys = {
+        {
+            mode = "i",
+            "<C-f>",
+            function()
+                require("codeium.virtual_text").cycle_or_complete()
+            end,
+            desc = "Codeium Complete",
+        },
+    },
     config = function()
         require("codeium").setup({
             enable_cmp_source = false,
             virtual_text = {
                 enabled = true,
-                manual = false,
+                manual = true,
                 key_bindings = {
-                    accept = "<C-f>",
+                    accept = "<C-g>",
                     accept_word = false,
                     accept_line = false,
                     next = false,
