@@ -24,7 +24,7 @@ return {
             "sourcekit",
             "gdscript",
             "neocmake",
-            "yamlls"
+            "yamlls",
         })
 
         vim.keymap.set("n", "gk", vim.diagnostic.open_float, { desc = "Open Diagnostic Float" })
