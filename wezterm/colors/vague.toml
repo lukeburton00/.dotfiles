@@ -1,0 +1,43 @@
+# WezTerm color scheme for vague.nvim
+# https://github.com/vague2k/vague.nvim
+
+[metadata]
+name = "vague"
+author = "lukeburton"
+origin_url = "https://github.com/vague2k/vague.nvim"
+
+[colors]
+foreground = "#cdcdcd"
+background = "#141415"
+cursor_bg = "#cdcdcd"
+cursor_fg = "#141415"
+cursor_border = "#cdcdcd"
+selection_fg = "#cdcdcd"
+selection_bg = "#252530"
+scrollbar_thumb = "#252530"
+split = "#252530"
+
+ansi = [
+  "#252530", # black
+  "#d8647e", # red
+  "#7fa563", # green
+  "#f3be7c", # yellow
+  "#6e94b2", # blue
+  "#bb9dbd", # magenta
+  "#aeaed1", # cyan
+  "#cdcdcd", # white
+]
+
+brights = [
+  "#606079", # bright_black
+  "#e08398", # bright_red
+  "#99b782", # bright_green
+  "#f5cb96", # bright_yellow
+  "#8ba9c1", # bright_blue
+  "#c9b1ca", # bright_magenta
+  "#bebeda", # bright_cyan
+  "#d7d7d7", # bright_white
+]
+
+## Tab bar colors are defined in the main config's `colors.tab_bar`
+
