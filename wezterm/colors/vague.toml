@@ -8,9 +8,9 @@ origin_url = "https://github.com/vague2k/vague.nvim"
 
 [colors]
 foreground = "#cdcdcd"
-background = "#141415"
+background = "#090909"
 cursor_bg = "#cdcdcd"
-cursor_fg = "#141415"
+cursor_fg = "#090909"
 cursor_border = "#cdcdcd"
 selection_fg = "#cdcdcd"
 selection_bg = "#252530"
