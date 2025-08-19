@@ -8,7 +8,7 @@ return {
         require("conform").setup({
             formatters_by_ft = {
                 lua = { "stylua" },
-                go = { "gofumpt" },
+                go = { "gofumpt", "goimports-reviser" },
                 ruby = { "rubocop" },
                 c = { "clang-format" },
                 cpp = { "clang-format" },
@@ -32,6 +32,10 @@ return {
                 return { timeout_ms = 500 }
             end,
         })
+
+        require("conform.formatters.goimports-reviser").append_args = {
+            "-imports-order", "std,company,project,general"
+        }
 
         -- Enable or disable format-on-save
         vim.api.nvim_create_user_command("FormatDisable", function()
