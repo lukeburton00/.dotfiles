@@ -5,6 +5,6 @@ return {
         open_for_directories = true,
     },
     keys = {
-        { "-", "<cmd>Yazi toggle<cr>", desc = "Yazi" },
+        { "-", "<cmd>Yazi<cr>", desc = "Yazi" },
     },
 }
