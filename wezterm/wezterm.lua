@@ -1,6 +1,4 @@
 local wezterm = require "wezterm"
-local act = wezterm.action
-local action_callback = wezterm.action_callback
 
 local config = {
     color_scheme = "vague",
