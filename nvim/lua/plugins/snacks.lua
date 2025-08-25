@@ -27,11 +27,6 @@ return {
                     keys = {
                         ["<Tab>"] = { "list_down", mode = { "i", "n" } },
                         ["<S-Tab>"] = { "list_up", mode = { "i", "n" } },
-                        ["<leader>q"] = {
-                            "qflist",
-                            mode = { "n", "i" },
-                            desc = "Send all to quickfix",
-                        },
                     },
                 },
             },
@@ -42,6 +37,7 @@ return {
                 backdrop = {
                     transparent = false,
                 },
+                width = 150,
             },
         },
     },
