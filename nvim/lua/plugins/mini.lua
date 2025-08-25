@@ -10,7 +10,6 @@ return {
         require("mini.statusline").setup()
         require("mini.cursorword").setup()
         require("mini.icons").setup()
-        require("mini.indentscope").setup()
-        MiniIcons.mock_nvim_web_devicons()
+        require("mini.icons").mock_nvim_web_devicons()
     end,
 }
