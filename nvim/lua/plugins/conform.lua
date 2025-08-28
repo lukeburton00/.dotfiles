@@ -31,11 +31,14 @@ return {
                 end
                 return { timeout_ms = 500 }
             end,
+            formatters = {
+                ["goimports-reviser"] = {
+                    append_args = {
+                        "-imports-order=std,company,project,general",
+                    },
+                },
+            },
         })
-
-        require("conform.formatters.goimports-reviser").append_args = {
-            "-imports-order", "std,company,project,general"
-        }
 
         -- Enable or disable format-on-save
         vim.api.nvim_create_user_command("FormatDisable", function()
