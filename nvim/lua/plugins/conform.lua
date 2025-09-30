@@ -9,7 +9,6 @@ return {
             formatters_by_ft = {
                 lua = { "stylua" },
                 go = { "gofumpt", "goimports-reviser" },
-                ruby = { "rubocop" },
                 c = { "clang-format" },
                 cpp = { "clang-format" },
                 csharp = { "csharpier" },
@@ -20,6 +19,7 @@ return {
                 eruby = { "erb_format" },
                 cmake = { "cmake_format" },
                 yaml = { "prettier" },
+                zig = { "zigfmt" },
             },
             default_format_opts = {
                 lsp_format = "fallback",

@@ -54,7 +54,7 @@ return {
             "angularls",
             "ts_ls",
             "html",
-            "ruby_lsp",
+            "solargraph",
             "csharp_ls",
             "sourcekit",
             "gdscript",
