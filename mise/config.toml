@@ -9,11 +9,11 @@ neovim = "latest"
 ninja = "latest"
 node = "latest"
 ripgrep = "latest"
-ruby = "latest"
 starship = "latest"
 terraform = "latest"
 "vfox:version-fox/vfox-cmake" = "latest"
 yazi = "latest"
+zig = "latest"
 zoxide = "latest"
 
 [settings]
