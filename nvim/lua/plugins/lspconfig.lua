@@ -50,6 +50,7 @@ return {
             "basedpyright",
             "rust_analyzer",
             "zls",
+            "ols",
             "clangd",
             "angularls",
             "ts_ls",
