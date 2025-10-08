@@ -4,10 +4,32 @@ return {
         "williamboman/mason.nvim",
     },
     event = "BufReadPre",
+    keys = {
+        { "gk", vim.diagnostic.open_float, desc = "Open Diagnostic Float", mode = "n" },
+        { "gd", vim.lsp.buf.definition, desc = "Go to Definition", mode = "n" },
+        { "gD", vim.lsp.buf.declaration, desc = "Go to Declaration", mode = "n" },
+    },
     config = function()
-        vim.lsp.config("*", {
-            capabilities = require("blink.cmp").get_lsp_capabilities(),
+        vim.lsp.enable({
+            "gopls",
+            "lua_ls",
+            "basedpyright",
+            "rust_analyzer",
+            "zls",
+            "ols",
+            "clangd",
+            "angularls",
+            "ts_ls",
+            "html",
+            "solargraph",
+            "csharp_ls",
+            "sourcekit",
+            "gdscript",
+            "neocmake",
+            "yamlls",
+            "templ",
         })
+
         vim.lsp.config("lua_ls", {
             on_init = function(client)
                 if client.workspace_folders then
@@ -43,29 +65,5 @@ return {
                 Lua = {},
             },
         })
-
-        vim.lsp.enable({
-            "gopls",
-            "lua_ls",
-            "basedpyright",
-            "rust_analyzer",
-            "zls",
-            "ols",
-            "clangd",
-            "angularls",
-            "ts_ls",
-            "html",
-            "solargraph",
-            "csharp_ls",
-            "sourcekit",
-            "gdscript",
-            "neocmake",
-            "yamlls",
-            "templ",
-        })
-
-        vim.keymap.set("n", "gk", vim.diagnostic.open_float, { desc = "Open Diagnostic Float" })
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
     end,
 }
