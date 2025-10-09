@@ -18,5 +18,6 @@ vim.o.showtabline = 0
 vim.o.signcolumn = "yes"
 vim.o.winborder = "rounded"
 vim.o.clipboard = "unnamedplus"
+vim.o.fillchars = "eob: "
 vim.o.autoread = true
 vim.diagnostic.config({ virtual_text = true })
