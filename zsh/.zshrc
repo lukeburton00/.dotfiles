@@ -7,7 +7,7 @@ alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
 
-alias l="ls -A -1 -p -v --group-directories-first --color=always"
+alias l="ls -A -p --color=always | sort"
 alias c="clear"
 
 gitmux() {
@@ -36,12 +36,11 @@ gitmux() {
     || { tmux new-session -ds "$SESSION" -c "$FOLDER"; tmux switch-client -t "$SESSION"; }
 }
 
-f() {
+fm() {
     nvim $(fzf)
 }
 
-bindkey -s '^p' 'gitmux\n'
-bindkey -s '^f' 'f\n'
+bindkey -s '^f' 'gitmux\n'
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
