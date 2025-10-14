@@ -14,6 +14,7 @@ return {
         require("mini.cursorword").setup()
         require("mini.icons").setup()
         require("mini.icons").mock_nvim_web_devicons()
+        require("mini.icons").tweak_lsp_kind()
         require("mini.snippets").setup()
         require("mini.completion").setup()
         vim.keymap.set("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
