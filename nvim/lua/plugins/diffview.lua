@@ -22,11 +22,15 @@ return {
             desc = "Toggle Diffview",
         },
     },
-    opts = {},
+    opts = {
+        default_args = {
+            DiffviewOpen = { "--imply-local" },
+        },
+    },
     config = function()
         -- compare current branch to main
         vim.api.nvim_create_user_command("DiffReview", function()
-            vim.cmd("DiffviewOpen origin/HEAD...HEAD --imply-local")
+            vim.cmd("DiffviewOpen origin/HEAD...HEAD")
         end, {})
     end,
 }
