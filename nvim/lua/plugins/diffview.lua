@@ -3,7 +3,10 @@ return {
     dependencies = {
         "nvim-mini/mini.nvim",
     },
-    cmd = "DiffviewOpen",
+    cmd = {
+        "DiffviewOpen",
+        "DiffReview",
+    },
     keys = {
         {
             "<leader>dv",
@@ -21,11 +24,9 @@ return {
     },
     opts = {},
     config = function()
+        -- compare current branch to main
         vim.api.nvim_create_user_command("DiffReview", function()
-            local main_branch = vim.fn
-                .system("git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'")
-                :gsub("\n", "")
-            vim.cmd("DiffviewOpen " .. main_branch .. "...HEAD")
+            vim.cmd("DiffviewOpen origin/HEAD...HEAD --imply-local")
         end, {})
     end,
 }
