@@ -30,7 +30,7 @@ return {
     config = function()
         -- compare current branch to main
         vim.api.nvim_create_user_command("DiffReview", function()
-            vim.cmd("DiffviewOpen origin/HEAD...HEAD")
+            vim.cmd("DiffviewOpen origin/HEAD...HEAD --imply-local")
         end, {})
     end,
 }
