@@ -3,6 +3,7 @@ return {
     dependencies = {
         "nvim-mini/mini.nvim",
     },
+    lazy = false,
     keys = {
         {
             "-",
@@ -11,8 +12,9 @@ return {
         },
     },
     opts = {
+        default_explorer = true,
         win = {
-            kind = "float",
+            kind = "replace",
             border = "rounded",
             win_opts = {
                 number = false,
