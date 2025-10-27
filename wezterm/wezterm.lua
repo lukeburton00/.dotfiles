@@ -8,8 +8,10 @@ local config = {
     colors = theme.colors(),
     window_frame = theme.window_frame(),
 
-    tab_bar_at_bottom = true,
     hide_tab_bar_if_only_one_tab = true,
+
+    window_decorations = "INTEGRATED_BUTTONS|RESIZE",
+    integrated_title_button_style = "Gnome",
 
     max_fps = 240,
     font_size = 16,

@@ -6,7 +6,7 @@ function M.colors()
         background = "#090909",
 
         cursor_bg = "#cdcdcd",
-        cursor_fg = "#141415",
+        cursor_fg = "#090909",
         cursor_border = "#cdcdcd",
 
         selection_fg = "#cdcdcd",
@@ -36,7 +36,7 @@ function M.colors()
             "#d7d7d7",
         },
         tab_bar = {
-            background = "#141415",
+            background = "#090909",
             active_tab = {
                 bg_color = "#252530",
                 fg_color = "#cdcdcd",
@@ -46,7 +46,7 @@ function M.colors()
                 strikethrough = false,
             },
             inactive_tab = {
-                bg_color = "#141415",
+                bg_color = "#090909",
                 fg_color = "#606079",
                 intensity = "Normal",
                 underline = "None",
@@ -59,7 +59,7 @@ function M.colors()
                 italic = false,
             },
             new_tab = {
-                bg_color = "#141415",
+                bg_color = "#090909",
                 fg_color = "#6e94b2",
             },
             new_tab_hover = {
@@ -73,8 +73,8 @@ end
 
 function M.window_frame() -- Fancy tab bar only
     return {
-        active_titlebar_bg = "#141415",
-        inactive_titlebar_bg = "#141415",
+        active_titlebar_bg = "#090909",
+        inactive_titlebar_bg = "#090909",
     }
 end
 
