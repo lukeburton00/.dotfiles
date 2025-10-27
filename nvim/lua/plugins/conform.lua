@@ -31,6 +31,16 @@ return {
                 end
                 return { timeout_ms = 500 }
             end,
+            formatters = {
+                ["goimports-reviser"] = {
+                    prepend_args = {
+                        "-company-prefixes",
+                        os.getenv("COMPANY_PREFIX"),
+                        "-imports-order",
+                        "std,project,company,general",
+                    },
+                },
+            },
         })
 
         -- Enable or disable format-on-save
