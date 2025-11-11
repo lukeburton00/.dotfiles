@@ -32,8 +32,8 @@ gitmux() {
     fi
 
     [ -z "$TMUX" ] \
-        && tmux new-session -s "$SESSION" -c "$FOLDER" \
-    || { tmux new-session -ds "$SESSION" -c "$FOLDER"; tmux switch-client -t "$SESSION"; }
+        && tmux new-session -s "$SESSION" -c "$FOLDER" nvim \
+    || { tmux new-session -ds "$SESSION" -c "$FOLDER" nvim; tmux switch-client -t "$SESSION"; }
 }
 
 fm() {
