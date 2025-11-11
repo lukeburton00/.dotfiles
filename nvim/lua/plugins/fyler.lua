@@ -13,16 +13,20 @@ return {
     },
     opts = {
         default_explorer = true,
-        win = {
-            kind = "replace",
-            border = "rounded",
-            win_opts = {
-                number = false,
-                relativenumber = false,
+        views = {
+            finder = {
+                win = {
+                    kind = "replace",
+                    border = "rounded",
+                    win_opts = {
+                        number = false,
+                        relativenumber = false,
+                    },
+                },
+                indentscope = {
+                    enabled = false,
+                },
             },
-        },
-        indentscope = {
-            enabled = false,
         },
     },
 }
