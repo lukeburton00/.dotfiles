@@ -12,9 +12,9 @@ return {
         },
     },
     opts = {
-        default_explorer = true,
         views = {
             finder = {
+                default_explorer = true,
                 win = {
                     kind = "replace",
                     border = "rounded",
