@@ -20,6 +20,7 @@ return {
                 cmake = { "cmake_format" },
                 yaml = { "prettier" },
                 zig = { "zigfmt" },
+                markdown = { "prettier" },
             },
             default_format_opts = {
                 lsp_format = "fallback",
