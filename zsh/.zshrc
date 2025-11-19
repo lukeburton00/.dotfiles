@@ -36,10 +36,6 @@ gitmux() {
     || { tmux new-session -ds "$SESSION" -c "$FOLDER"; tmux switch-client -t "$SESSION"; }
 }
 
-fm() {
-    nvim $(fzf)
-}
-
 bindkey -s '^f' 'gitmux\n'
 
 function y() {
