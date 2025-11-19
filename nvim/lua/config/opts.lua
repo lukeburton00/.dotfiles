@@ -21,5 +21,3 @@ vim.o.clipboard = "unnamedplus"
 vim.o.fillchars = "eob: "
 vim.o.autoread = true
 vim.diagnostic.config({ virtual_text = true })
-
-vim.o.statusline = require("config.statusline").setup()
