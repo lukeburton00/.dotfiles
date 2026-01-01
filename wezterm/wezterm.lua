@@ -2,7 +2,6 @@ local wezterm = require "wezterm"
 local theme = require("lua/vague")
 
 local config = {
-    color_scheme = "vague",
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 
     colors = theme.colors(),
@@ -16,6 +15,10 @@ local config = {
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     config.default_prog = { "pwsh.exe" }
+end
+
+if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+    config.enable_wayland = false
 end
 
 return config
