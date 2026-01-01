@@ -22,7 +22,7 @@ return {
             "ts_ls",
             "html",
             "solargraph",
-            "csharp_ls",
+            "omnisharp",
             "sourcekit",
             "gdscript",
             "neocmake",
