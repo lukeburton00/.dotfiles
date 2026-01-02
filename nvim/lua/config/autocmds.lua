@@ -109,7 +109,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
 
 -- Periodically check for changes every 2 seconds
 local autoread_timer = vim.loop.new_timer()
-
 autoread_timer:start(
     2000,
     2000,
@@ -125,5 +124,20 @@ autoread_timer:start(
 vim.api.nvim_create_autocmd("FileChangedShellPost", {
     callback = function()
         vim.notify("File reloaded from disk", vim.log.levels.INFO, { title = "AutoRead" })
+    end,
+})
+
+-- J and K for fast quickfix navigation
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "qf",
+    callback = function()
+        vim.keymap.set("n", "J", function()
+            vim.cmd("cnext")
+            vim.cmd("wincmd p")
+        end, { buffer = true })
+        vim.keymap.set("n", "K", function()
+            vim.cmd("cprevious")
+            vim.cmd("wincmd p")
+        end, { buffer = true })
     end,
 })
