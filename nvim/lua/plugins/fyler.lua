@@ -16,7 +16,7 @@ return {
             finder = {
                 default_explorer = true,
                 win = {
-                    kind = "replace",
+                    kind = "float",
                     border = "rounded",
                     win_opts = {
                         number = false,
