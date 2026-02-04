@@ -6,6 +6,9 @@ return {
     event = "InsertEnter",
     version = "1.*",
     opts = {
+        enabled = function()
+            return not vim.tbl_contains({ "AgenticInput" }, vim.bo.filetype)
+        end,
         keymap = {
             preset = "none",
             ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
@@ -44,15 +47,12 @@ return {
                                 local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
                                 return kind_icon
                             end,
-                            -- (optional) use highlights from mini.icons
-
                             highlight = function(ctx)
                                 local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
                                 return hl
                             end,
                         },
                         kind = {
-                            -- (optional) use highlights from mini.icons
                             highlight = function(ctx)
                                 local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
                                 return hl
