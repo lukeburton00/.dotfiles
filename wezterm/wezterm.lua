@@ -15,8 +15,8 @@ local config = {
 }
 
 if wezterm.target_triple:find("windows") ~= nil then
-elseif wezterm.target_triple:find("linux") ~= nil then
     config.default_prog = { "pwsh.exe" }
+elseif wezterm.target_triple:find("linux") ~= nil then
     config.enable_wayland = false
 elseif wezterm.target_triple:find("darwin") ~= nil then
     config.font_size = 20
