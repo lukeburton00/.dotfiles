@@ -19,7 +19,7 @@ if wezterm.target_triple:find("windows") ~= nil then
 elseif wezterm.target_triple:find("linux") ~= nil then
     config.enable_wayland = false
 elseif wezterm.target_triple:find("darwin") ~= nil then
-    config.font_size = 20
+    config.font_size = 18
 end
 
 return config
