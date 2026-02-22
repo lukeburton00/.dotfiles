@@ -21,6 +21,3 @@ zoxide = "latest"
 asdf = false
 vfox = true
 idiomatic_version_file_enable_tools = ["ruby"]
-
-[settings.ruby]
-compile = false
