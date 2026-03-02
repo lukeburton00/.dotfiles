@@ -3,6 +3,9 @@ return {
 
     opts = {
         provider = os.getenv("AGENTIC_PROVIDER") or "opencode-acp",
+        diff_preview = {
+            layout = "inline",
+        },
     },
 
     keys = {
