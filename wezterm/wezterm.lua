@@ -3,7 +3,7 @@ local theme = require("lua/vague")
 
 local config = {
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
-    font = wezterm.font("JetBrains Mono", { weight = "Bold", style = "Normal" }),
+    font = wezterm.font("Maple Mono NF", { style = "Normal" }),
 
     colors = theme.colors(),
     window_frame = theme.window_frame(),
