@@ -17,6 +17,7 @@ return {
             swift = { "swiftlint" },
             cmake = { "cmakelint" },
             yaml = { "yamllint" },
+            json = { "jsonlint" },
         }
 
         vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {

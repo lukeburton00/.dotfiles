@@ -21,6 +21,7 @@ return {
                 yaml = { "prettierd" },
                 zig = { "zigfmt" },
                 markdown = { "prettierd" },
+                json = { "prettierd" },
             },
             default_format_opts = {
                 lsp_format = "fallback",

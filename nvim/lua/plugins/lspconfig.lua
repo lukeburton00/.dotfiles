@@ -28,6 +28,7 @@ return {
             "neocmake",
             "yamlls",
             "templ",
+            "jsonls",
         })
 
         vim.lsp.config("lua_ls", {
