@@ -1,0 +1,26 @@
+position = "Bottom"
+
+[modules]
+left = ["Workspaces", "Tray"]
+center = [ "WindowTitle" ]
+right = [ "SystemInfo", ["Clock", "Privacy", "Settings" ] ]
+
+[appearance]
+style = "Solid"
+primary_color = "#7e98e8"
+success_color = "#7fa563"
+text_color = "#cdcdcd"
+workspace_colors = [ "#7e98e8", "#b4d4cf" ]
+
+[appearance.danger_color]
+base = "#d8647e"
+weak = "#f3be7c"
+
+[appearance.background_color]
+base = "#141415"
+weak = "#1c1c24"
+strong = "#252530"
+
+[appearance.secondary_color]
+base = "#0e0e0f"
+weak = "#606079"
