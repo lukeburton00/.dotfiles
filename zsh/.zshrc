@@ -51,3 +51,7 @@ export PODMAN_COMPOSE_PROVIDER=podman
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+zstyle ':completion:*' menu select
