@@ -20,4 +20,5 @@ vim.o.winborder = "rounded"
 vim.o.clipboard = "unnamedplus"
 vim.o.fillchars = "eob: "
 vim.o.autoread = true
+vim.o.guicursor = "n-v-i-c:block-Cursor"
 vim.diagnostic.config({ virtual_text = true })
