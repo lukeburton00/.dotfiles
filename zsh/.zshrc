@@ -11,29 +11,71 @@ alias l="ls -A -p --color=always | sort"
 alias c="clear"
 
 gitmux() {
-    local SEARCH_DIRS=(~/dev ~)
-    local FOLDER SESSION COLLISION_COUNT
+    local sessions
+    sessions=${(j:|:)${(f)"$(tmux list-sessions -F '#{session_name}' 2>/dev/null)"}}
 
-    # Find git dirs and send path + basename to fzf
-    FOLDER=$(fd -I -H --type d . "${SEARCH_DIRS[@]}" -d 1 \
-        | while IFS= read -r dir; do
-            [ -d "$dir/.git" ] && printf "%s\t%s\n" "$dir" "$(basename "$dir")"
-        done \
-        | fzf --with-nth=2 \
-            --delimiter='\t' \
-            --preview='dir=$(cut -f1 <<< {}); ls --color=always "$dir"' \
-        | cut -f1) || return
+    local selection
+    selection=$(fd -I -H --type d '^\.git$' ~/dev ~ -d 2 2>/dev/null \
+        | awk -v s="$sessions" '
+            BEGIN { n=split(s,a,"|"); for(i=1;i<=n;i++) active[a[i]]=1 }
+            {
+                dir=$0; sub(/\/\.git\/$/, "", dir)
+                n=split(dir,p,"/"); base=p[n]
+                branch="detached"
+                headfile=dir"/.git/HEAD"
+                if ((getline line < headfile) > 0)
+                    if (sub(/^ref: refs\/heads\//, "", line)) branch=line
+                close(headfile)
+                sname=base; gsub(/[^a-zA-Z0-9]/, "_", sname)
+                act=(sname in active)
+                printf "%s\t%s\t%s (%s)%s\n", (act?"0":"1"), dir, base, branch, (act?" ★":"")
+            }' \
+        | sort -t$'\t' -k1,1 | cut -f2- \
+        | fzf --multi --with-nth=2 --delimiter='\t' --query="$*" \
+            --header="enter: open workspace · C-x: kill · C-n: detached · C-r: refresh" \
+            --expect=ctrl-x,ctrl-n,ctrl-r \
+            --preview='git -C {1} log --oneline -8 2>/dev/null; echo; git -C {1} status --short 2>/dev/null' \
+            --preview-window="right:50%") || return
 
-    SESSION=$(basename "$FOLDER" | sed 's/[^a-zA-Z0-9]/_/g')
+    local lines=("${(@f)selection}")
+    local key=$lines[1]
+    local items=("${(@)lines[2,-1]}")
+    local folder=${items[1]%%$'\t'*}
 
-    if tmux has-session -t "$SESSION" 2>/dev/null; then
-        [ -z "$TMUX" ] && tmux attach -t "$SESSION" || tmux switch-client -t "$SESSION"
-        return
-    fi
-
-    [ -z "$TMUX" ] \
-        && tmux new-session -s "$SESSION" -c "$FOLDER" \
-    || { tmux new-session -ds "$SESSION" -c "$FOLDER"; tmux switch-client -t "$SESSION"; }
+    case "$key" in
+        ctrl-x|ctrl-n)
+            local f s
+            for item in "${items[@]}"; do
+                f=${item%%$'\t'*}
+                s=${f:t}
+                s=${s//[^a-zA-Z0-9]/_}
+                if [[ $key == ctrl-x ]]; then
+                    tmux kill-session -t "$s" 2>/dev/null && echo "Killed: $s"
+                else
+                    tmux has-session -t "$s" 2>/dev/null || tmux new-session -ds "$s" -c "$f"
+                    echo "Created: $s"
+                fi
+            done
+            gitmux ;;
+        ctrl-r) gitmux ;;
+        *)
+            local session=${folder:t}
+            session=${session//[^a-zA-Z0-9]/_}
+            if ! tmux has-session -t "$session" 2>/dev/null; then
+                tmux new-session -ds "$session" -c "$folder"
+                tmux send-keys -t "$session" nvim Enter
+                tmux new-window -t "$session" -c "$folder"
+                tmux send-keys -t "$session" opencode Enter
+                tmux new-window -t "$session" -c "$folder"
+                tmux send-keys -t "$session" lazygit Enter
+                tmux select-window -t "$session:1"
+            fi
+            if [[ -z $TMUX ]]; then
+                tmux attach -t "$session"
+            else
+                tmux switch-client -t "$session"
+            fi ;;
+    esac
 }
 
 bindkey -s '^f' 'gitmux\n'
