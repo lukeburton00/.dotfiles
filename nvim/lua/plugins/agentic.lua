@@ -2,7 +2,7 @@ return {
     "carlos-algms/agentic.nvim",
 
     opts = {
-        provider = os.getenv("AGENTIC_PROVIDER") or "opencode-acp",
+        provider = "opencode-acp",
         diff_preview = {
             layout = "inline",
         },
