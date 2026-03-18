@@ -49,9 +49,15 @@ function y() {
 
 export PODMAN_COMPOSE_PROVIDER=podman
 
-eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
-
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
+
+autoload -Uz edit-command-line
+
+zle -N edit-command-line
+
+bindkey '^Xe' edit-command-line
+
+eval "$(zoxide init zsh)"
+eval "$(oh-my-posh init zsh --config ~/.config/posh/config.omp.json)"
