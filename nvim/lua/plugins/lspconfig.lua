@@ -29,6 +29,7 @@ return {
             "yamlls",
             "templ",
             "jsonls",
+            "glsl_analyzer",
         })
 
         vim.lsp.config("lua_ls", {
