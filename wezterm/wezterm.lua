@@ -1,21 +1,17 @@
 local wezterm = require "wezterm"
-local theme = require("lua/vague")
 
 local config = {
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
-
-    colors = theme.colors(),
-    window_frame = theme.window_frame(),
+    color_scheme = "catppuccin-mocha",
 
     hide_tab_bar_if_only_one_tab = true,
 
     max_fps = 240,
-    font_size = 16,
+    font_size = 14,
 }
 
 if wezterm.target_triple:find("windows") ~= nil then
     config.default_prog = { "pwsh.exe" }
-    config.font_size = 14
 elseif wezterm.target_triple:find("linux") ~= nil then
     config.enable_wayland = false
 elseif wezterm.target_triple:find("darwin") ~= nil then
