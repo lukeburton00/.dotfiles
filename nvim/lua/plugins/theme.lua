@@ -1,14 +1,16 @@
 return {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "topazape/oldtale.nvim",
+    lazy = false,
     priority = 1000,
-    opts = {
-        background = {
-            dark = "mocha",
-        },
-    },
-
-    init = function()
-        vim.cmd.colorscheme("catppuccin-nvim")
+    config = function()
+        require("oldtale").setup({
+            integrations = {
+                blink = true,
+                gitsigns = true,
+                lsp = true,
+                treesitter = true,
+            },
+        })
+        vim.cmd("colorscheme oldtale")
     end,
 }
