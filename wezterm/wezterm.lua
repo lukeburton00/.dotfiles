@@ -2,7 +2,7 @@ local wezterm = require "wezterm"
 
 local config = {
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
-    color_scheme = "catppuccin-mocha",
+    color_scheme = "oldtale",
 
     hide_tab_bar_if_only_one_tab = true,
 
