@@ -63,12 +63,6 @@ gitmux() {
             session=${session//[^a-zA-Z0-9]/_}
             if ! tmux has-session -t "$session" 2>/dev/null; then
                 tmux new-session -ds "$session" -c "$folder"
-                tmux send-keys -t "$session" nvim Enter
-                tmux new-window -t "$session" -c "$folder"
-                tmux send-keys -t "$session" opencode Enter
-                tmux new-window -t "$session" -c "$folder"
-                tmux send-keys -t "$session" lazygit Enter
-                tmux select-window -t "$session:1"
             fi
             if [[ -z $TMUX ]]; then
                 tmux attach -t "$session"
