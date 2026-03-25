@@ -1,0 +1,51 @@
+[tasks.link_common]
+depends = "unlink_common"
+run = [
+    "ln -s $HOME/.dotfiles/nvim                    $HOME/.config/nvim",
+    "ln -s $HOME/.dotfiles/tmux                    $HOME/.config/tmux",
+    "ln -s $HOME/.dotfiles/ghostty                 $HOME/.config/ghostty",
+    "ln -s $HOME/.dotfiles/mise                    $HOME/.config/mise",
+    "ln -s $HOME/.dotfiles/yazi                    $HOME/.config/yazi",
+    "ln -s $HOME/.dotfiles/starship/starship.toml  $HOME/.config/starship.toml",
+    "ln -s $HOME/.dotfiles/zsh/.config/zsh         $HOME/.config/zsh",
+    "ln -s $HOME/.dotfiles/zsh/.zshrc              $HOME/.zshrc",
+    "ln -s $HOME/.dotfiles/zsh/.zshenv             $HOME/.zshenv",
+]
+
+[tasks.link_macos]
+depends = ["link_common", "unlink_macos"]
+run = [
+    "ln -s $HOME/.dotfiles/aerospace $HOME/.config/aerospace"
+]
+
+[tasks.link_linux]
+depends = ["link_common", "unlink_linux"]
+run = [
+    "ln -s $HOME/.dotfiles/hypr    $HOME/.config/hypr",
+    "ln -s $HOME/.dotfiles/ashell  $HOME/.config/ashell"
+]
+
+[tasks.unlink_common]
+run = [
+    "rm -f $HOME/.config/nvim",
+    "rm -f $HOME/.config/tmux",
+    "rm -f $HOME/.config/ghostty",
+    "rm -f $HOME/.config/mise",
+    "rm -f $HOME/.config/yazi",
+    "rm -f $HOME/.config/starship.toml",
+    "rm -f $HOME/.config/zsh",
+    "rm -f $HOME/.zshrc",
+    "rm -f $HOME/.zshenv",
+    "rm -f $HOME/.zfunc",
+]
+
+[tasks.unlink_macos]
+run = [
+    "rm -f $HOME/.config/aerospace"
+]
+
+[tasks.unlink_linux]
+run = [
+    "rm -f $HOME/.config/hypr",
+    "rm -f $HOME/.config/ashell"
+]
