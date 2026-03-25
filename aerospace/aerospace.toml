@@ -6,7 +6,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 [mode.main.binding]
-alt-enter = 'exec-and-forget open /Applications/Wezterm.app'
+alt-enter = 'exec-and-forget open /Applications/Ghostty.app'
 
 cmd-j =         'focus --boundaries-action wrap-around-the-workspace left'
 cmd-k =         'focus --boundaries-action wrap-around-the-workspace down'
@@ -63,7 +63,7 @@ alt-r = 'mode resize'
 9 = 2
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'wezterm'
+if.app-name-regex-substring = 'ghostty'
 run = ['move-node-to-workspace 1']
 
 
