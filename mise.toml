@@ -40,11 +40,13 @@ run = [
 ]
 
 [tasks.unlink_macos]
+depends = ["unlink_common"]
 run = [
     "rm -f $HOME/.config/aerospace"
 ]
 
 [tasks.unlink_linux]
+depends = ["unlink_common"]
 run = [
     "rm -f $HOME/.config/hypr",
     "rm -f $HOME/.config/ashell"
