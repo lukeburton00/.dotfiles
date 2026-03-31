@@ -1,57 +1,3 @@
--- https://github.com/fredrikaverpil/dotfiles
-
-local function sign_parser_macos(parser_name)
-    if vim.fn.has("mac") ~= 1 then
-        return
-    end
-    local parser_path = vim.fn.stdpath("data") .. "/site/parser/" .. parser_name .. ".so"
-    if vim.fn.filereadable(parser_path) == 1 then
-        vim.fn.system({ "codesign", "--force", "--sign", "-", parser_path })
-    end
-end
-
-local function install_and_start()
-    vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-        callback = function(event)
-            local bufnr = event.buf
-            local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
-
-            if filetype == "" then
-                return
-            end
-
-            local parser_name = vim.treesitter.language.get_lang(filetype) -- WARNING: might return filetype (not helpful)
-            if not parser_name then
-                return
-            end
-            local parser_configs = require("nvim-treesitter.parsers")
-            local parser_can_be_used = parser_configs[parser_name]
-            if not parser_can_be_used then
-                return
-            end
-
-            local parser_installed = vim.treesitter.get_parser(bufnr, parser_name) ~= nil
-
-            if not parser_installed then
-                require("nvim-treesitter").install({ parser_name }):wait(30000)
-                sign_parser_macos(parser_name)
-            end
-
-            parser_installed = vim.treesitter.get_parser(bufnr, parser_name) ~= nil
-            if not parser_installed then
-                vim.notify(
-                    "Failed to get parser for " .. parser_name .. " after installation",
-                    vim.log.levels.WARN,
-                    { title = "core/treesitter" }
-                )
-                return
-            end
-
-            vim.treesitter.start(bufnr, parser_name)
-        end,
-    })
-end
-
 return {
     {
         "nvim-treesitter/nvim-treesitter",
@@ -59,8 +5,49 @@ return {
         event = "BufRead",
         branch = "main",
         build = ":TSUpdate",
-        config = function(_, opts)
-            install_and_start()
+        config = function()
+            local parsers = require("nvim-treesitter.parsers")
+            local log = vim.log.levels
+
+            local function start_after_install(buf, lang)
+                vim.notify(("[treesitter] installing %s..."):format(lang), log.INFO)
+                require("nvim-treesitter").install({ lang })
+
+                local attempts, max_attempts, delay = 0, 60, 500
+
+                local function try_start()
+                    if pcall(vim.treesitter.language.inspect, lang) then
+                        vim.notify(("[treesitter] installed %s"):format(lang), log.INFO)
+                        vim.treesitter.start(buf, lang)
+                    else
+                        attempts = attempts + 1
+                        if attempts <= max_attempts then
+                            vim.defer_fn(try_start, delay)
+                        else
+                            vim.notify(("[treesitter] timed out installing %s"):format(lang), log.WARN)
+                        end
+                    end
+                end
+
+                try_start()
+            end
+
+            vim.api.nvim_create_autocmd("FileType", {
+                callback = function(event)
+                    local ft = event.match
+                    local lang = vim.treesitter.language.get_lang(ft) or ft
+
+                    if not parsers[lang] then
+                        return
+                    end
+
+                    if pcall(vim.treesitter.language.inspect, lang) then
+                        vim.treesitter.start(event.buf, lang)
+                    else
+                        start_after_install(event.buf, lang)
+                    end
+                end,
+            })
         end,
     },
 }
