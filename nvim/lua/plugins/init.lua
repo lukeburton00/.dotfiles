@@ -1,1 +1,5 @@
 require("plugins.treesitter")
+require("plugins.lsp")
+require("plugins.lint")
+require("plugins.fyler")
+require("plugins.blink")
