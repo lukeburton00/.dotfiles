@@ -5,6 +5,7 @@ vim.pack.add({
 vim.lsp.enable({
     "lua_ls",
     "ols",
+    "gopls",
 })
 
 vim.lsp.config("lua_ls", {
