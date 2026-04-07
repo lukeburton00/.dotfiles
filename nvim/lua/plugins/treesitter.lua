@@ -1,5 +1,5 @@
 vim.pack.add({
-	{ src = "nvim-treesitter/nvim-treesitter" }
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" }
 })
 
 local parsers = require("nvim-treesitter.parsers")
