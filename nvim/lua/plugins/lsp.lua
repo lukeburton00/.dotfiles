@@ -6,6 +6,7 @@ vim.lsp.enable({
     "lua_ls",
     "ols",
     "gopls",
+    "solargraph",
 })
 
 vim.lsp.config("lua_ls", {
