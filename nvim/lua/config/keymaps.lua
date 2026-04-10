@@ -11,7 +11,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- lazygit
 vim.keymap.set("n", "<leader>g", function()
-    vim.cmd("vsplit | wincmd l | term lazygit")
+    vim.cmd("term lazygit")
 
     local buf = vim.api.nvim_get_current_buf()
 
