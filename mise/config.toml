@@ -2,6 +2,6 @@
 go = "latest"
 neovim = "latest"
 node = "latest"
+opencode = "latest"
 python = "latest"
-ruby = "latest"
 zig = "latest"
