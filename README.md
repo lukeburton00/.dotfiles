@@ -3,23 +3,13 @@
 Behold, my dots!
 
 ## Example Usage
+I use [mise](https://mise.jdx.dev/):
 
-I recommend using symlinks:
+```zsh
+## Tasks are defined to set up symlinks per-platform:
 
-#### Linux/MacOS
+# linux
+mise link_linux
 
-```bash
-git clone https://github.com/lukeburton00/.dotfiles $HOME/.dotfiles
-
-ln -s $HOME/.dotfiles/nvim $HOME/.config/nvim
-```
-
-#### Windows
-
-```powershell
-# run Command Prompt as administrator for mklink
-
-git clone https://github.com/lukeburton00/.dotfiles %HOMEPATH\.dotfiles
-
-mklink /D %HOMEPATH%\Documents\Powershell %HOMEPATH%\.dotfiles\Powershell
-```
+# macos
+mise link_macos
