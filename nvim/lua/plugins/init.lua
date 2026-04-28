@@ -1,6 +1,6 @@
 require("plugins.theme")
 require("plugins.mini")
-require("plugins.arborist")
+require("plugins.tree-sitter-manager")
 require("plugins.mason")
 require("plugins.lsp")
 require("plugins.lint")
