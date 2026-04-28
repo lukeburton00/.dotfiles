@@ -1,8 +1,10 @@
 vim.pack.add({
+    { src = "https://github.com/saghen/blink.lib" },
     { src = "https://github.com/saghen/blink.cmp" },
     { src = "https://github.com/rafamadriz/friendly-snippets" },
 })
 
+require("blink.cmp").build():wait(60000)
 require("blink.cmp").setup({
     enabled = function()
         return not vim.tbl_contains({ "AgenticInput" }, vim.bo.filetype)
