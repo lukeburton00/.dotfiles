@@ -22,32 +22,34 @@ run = [
 depends = ["link_common", "unlink_linux"]
 run = [
     "ln -s $HOME/.dotfiles/hypr    $HOME/.config/hypr",
-    "ln -s $HOME/.dotfiles/ashell  $HOME/.config/ashell"
+    "ln -s $HOME/.dotfiles/ashell  $HOME/.config/ashell",
+    "ln -s $HOME/.dotfiles/sway  $HOME/.config/sway"
 ]
 
 [tasks.unlink_common]
 run = [
-    "rm -f $HOME/.config/nvim",
-    "rm -f $HOME/.config/tmux",
-    "rm -f $HOME/.config/ghostty",
-    "rm -f $HOME/.config/mise",
-    "rm -f $HOME/.config/yazi",
-    "rm -f $HOME/.config/starship.toml",
-    "rm -f $HOME/.config/zsh",
-    "rm -f $HOME/.zshrc",
-    "rm -f $HOME/.zshenv",
-    "rm -f $HOME/.zfunc",
+    "rm -rf $HOME/.config/nvim",
+    "rm -rf $HOME/.config/tmux",
+    "rm -rf $HOME/.config/ghostty",
+    "rm -rf $HOME/.config/mise",
+    "rm -rf $HOME/.config/yazi",
+    "rm -rf $HOME/.config/starship.toml",
+    "rm -rf $HOME/.config/zsh",
+    "rm -rf $HOME/.zshrc",
+    "rm -rf $HOME/.zshenv",
+    "rm -rf $HOME/.zfunc",
 ]
 
 [tasks.unlink_macos]
 depends = ["unlink_common"]
 run = [
-    "rm -f $HOME/.config/aerospace"
+    "rm -rf $HOME/.config/aerospace"
 ]
 
 [tasks.unlink_linux]
 depends = ["unlink_common"]
 run = [
-    "rm -f $HOME/.config/hypr",
-    "rm -f $HOME/.config/ashell"
+    "rm -rf $HOME/.config/hypr",
+    "rm -rf $HOME/.config/ashell",
+    "rm -rf $HOME/.config/sway"
 ]
