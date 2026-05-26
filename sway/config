@@ -18,7 +18,7 @@ set $term ghostty
 # Your preferred application launcher
 set $menu fuzzel
 
-set $browser flatpak run org.mozilla.firefox
+set $browser firefox
 
 ### Output configuration
 #
