@@ -4,7 +4,6 @@ vim.pack.add({
     { src = "https://github.com/rafamadriz/friendly-snippets" },
 })
 
-require("blink.cmp").build():wait(60000)
 require("blink.cmp").setup({
     enabled = function()
         return not vim.tbl_contains({ "AgenticInput" }, vim.bo.filetype)
