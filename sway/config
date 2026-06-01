@@ -23,7 +23,7 @@ set $browser firefox
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/wallpapers/wallpaper.jpg fill
+# output * bg ~/Pictures/wallpapers/wallpaper.jpg fill
 #
 # Example configuration:
 #
@@ -31,18 +31,19 @@ output * bg ~/Pictures/wallpapers/wallpaper.jpg fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-output DP-2 resolution 3440x1440@144Hz 	position 1440 525
-output DP-1 resolution 2560x1440@60Hz	position 0 0 transform 270
+output DP-4 resolution 3440x1440@144Hz 	position 1440 525 
+output DP-3 resolution 2560x1440@60Hz	position 0 0 transform 270
 
-workspace 1 output "DP-2"
-workspace 2 output "DP-2"
-workspace 3 output "DP-2"
-workspace 4 output "DP-2"
-workspace 5 output "DP-2"
-workspace 6 output "DP-1"
-workspace 7 output "DP-1"
-workspace 8 output "DP-1"
-workspace 9 output "DP-1"
+
+workspace 1 output "DP-4"
+workspace 2 output "DP-4"
+workspace 3 output "DP-4"
+workspace 4 output "DP-4"
+workspace 5 output "DP-4"
+workspace 6 output "DP-3"
+workspace 7 output "DP-3"
+workspace 8 output "DP-3"
+workspace 9 output "DP-3"
 
 smart_gaps off
 default_border none
@@ -62,7 +63,7 @@ default_floating_border none
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 exec swaybg -i ~/Pictures/wallpapers/wallpaper.jpg -m fill
-exec mako
+exec mako --default-timeout 5000 --output DP-4 --anchor bottom-right
 
 ### Input configuration
 #
@@ -204,6 +205,8 @@ exec mako
 
 mode "gaming" {
 	bindsym $mod+g mode "default"
+    bindsym $mod+a output * adaptive_sync on
+    bindsym $mod+o output * adaptive_sync off
 }
 
 bindsym $mod+g mode "gaming"
@@ -235,7 +238,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    status_command /home/luke/.dotfiles/sway/sway-status.py
 
     colors {
         statusline #ffffff
