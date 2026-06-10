@@ -18,12 +18,12 @@ set $term ghostty
 # Your preferred application launcher
 set $menu fuzzel
 
-set $browser firefox
+set $browser flatpak run org.mozilla.firefox
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg ~/Pictures/wallpapers/wallpaper.jpg fill
+output * bg ~/Pictures/wallpapers/wallpaper.png fill
 #
 # Example configuration:
 #
@@ -62,7 +62,6 @@ default_floating_border none
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-exec swaybg -i ~/Pictures/wallpapers/wallpaper.jpg -m fill
 exec mako --default-timeout 5000 --output DP-4 --anchor bottom-right
 
 ### Input configuration
@@ -238,7 +237,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command /home/luke/.dotfiles/sway/sway-status.py
+    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
 
     colors {
         statusline #ffffff
