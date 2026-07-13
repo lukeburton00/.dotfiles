@@ -70,3 +70,67 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+wt() {
+    if [[ $1 == -h || $1 == --help || $1 == help ]]; then
+        print -r -- 'wt - manage git worktrees as siblings of the repo (<repo>-<branch>)
+
+usage:
+  wt new <branch>   create a worktree + branch, then cd into it
+  wt rm [<branch>]  remove a worktree by name; no arg opens an fzf picker
+  wt                fzf-pick a worktree and cd into it (aliases: list, ls, cd)
+  wt -h             show this help'
+        return 0
+    fi
+
+    local root
+    root=$(git rev-parse --show-toplevel 2>/dev/null) || {
+        print -u2 "wt: not inside a git repo"; return 1
+    }
+    local repo=${root:t} parent=${root:h}
+    local cmd=$1; shift 2>/dev/null
+
+    case "$cmd" in
+        new)
+            local branch=$1
+            [[ -n $branch ]] || { print -u2 "wt: usage: wt new <branch>"; return 1 }
+            local wtdir="$parent/$repo-${branch//\//-}"
+            git worktree add -b "$branch" "$wtdir" 2>/dev/null \
+                || git worktree add "$wtdir" "$branch" \
+                || return 1
+            builtin cd -- "$wtdir"
+            ;;
+        rm|remove)
+            local target=$1 wtdir
+            if [[ -n $target ]]; then
+                wtdir="$parent/$repo-${target//\//-}"
+            else
+                wtdir=$(git worktree list | fzf --with-nth=1 \
+                    --preview 'git -C {1} status --short' \
+                    --preview-window="right:50%")
+                wtdir=${wtdir%% *}
+            fi
+            [[ -n $wtdir ]] || return 1
+            local list="$(git worktree list)"
+            local main=${${(f)list}[1]%% *}
+            if git worktree remove "$wtdir"; then
+                print "Removed: $wtdir"
+                [[ -n $main ]] && builtin cd -- "$main"
+                return
+            fi
+            print -u2 "wt: worktree dirty; retry with: git worktree remove --force $wtdir"
+            return 1
+            ;;
+        ""|list|ls|cd)
+            local wtdir
+            wtdir=$(git worktree list | fzf --with-nth=1 \
+                --preview 'git -C {1} log --oneline -8 2>/dev/null; echo; git -C {1} status --short 2>/dev/null' \
+                --preview-window="right:50%")
+            wtdir=${wtdir%% *}
+            [[ -n $wtdir ]] && builtin cd -- "$wtdir"
+            ;;
+        *)
+            print -u2 "wt: unknown command '$cmd' (new|rm|list)"; return 1
+            ;;
+    esac
+}
