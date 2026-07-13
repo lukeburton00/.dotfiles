@@ -25,17 +25,14 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.pack.add({
-    { src = "https://github.com/metalelf0/black-metal-theme-neovim" },
+    { src = "https://github.com/vague-theme/vague.nvim" },
     { src = "https://github.com/nvim-mini/mini.nvim" },
     { src = "https://github.com/romus204/tree-sitter-manager.nvim" },
     { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/mfussenegger/nvim-lint" },
     { src = "https://github.com/A7Lavinraj/fyler.nvim" },
-    { src = "https://github.com/saghen/blink.lib" },
-    { src = "https://github.com/rafamadriz/friendly-snippets" },
     { src = "https://github.com/stevearc/conform.nvim" },
-    { src = "https://github.com/folke/zen-mode.nvim" },
     { src = "https://github.com/alexghergh/nvim-tmux-navigation" },
 })
 
@@ -67,11 +64,7 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
 })
 
 -- Theme
-local black_metal = require("black-metal")
-black_metal.setup({
-    theme = "dark-funeral",
-})
-black_metal.load()
+vim.cmd.colorscheme("vague")
 
 -- Mini
 local mini_pick = require("mini.pick")
@@ -118,6 +111,7 @@ vim.lsp.enable({
     "ols",
     "gopls",
     "solargraph",
+    "nil_ls",
 })
 
 vim.lsp.config("lua_ls", {
@@ -164,6 +158,7 @@ map("n", "gk", vim.diagnostic.open_float)
 require("lint").linters_by_ft = {
     go = { "golangcilint" },
     ruby = { "rubocop" },
+    nix = { "statix" },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
@@ -176,9 +171,16 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
 
 -- Fyler
 require("fyler").setup({
-    views = {
-        finder = {
-            default_explorer = true,
+    integrations = {
+        icon = "mini_icons",
+    },
+    extensions = {
+        git = { enabled = true },
+        watcher = { enabled = true },
+    },
+    ui = {
+        hidden_items = {
+            switches = {},
         },
     },
 })
@@ -193,6 +195,7 @@ require("conform").setup({
         lua = { "stylua" },
         go = { "gofumpt", "goimports-reviser" },
         ruby = { "rubocop" },
+        nix = { "alejandra" },
     },
     default_format_opts = {
         lsp_format = "fallback",
