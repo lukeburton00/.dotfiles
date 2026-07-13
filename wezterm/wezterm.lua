@@ -1,4 +1,5 @@
 local wezterm = require "wezterm"
+local theme = require("lua/vague")
 
 local config = {
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
@@ -7,6 +8,9 @@ local config = {
     font_size = 14,
 
     hide_tab_bar_if_only_one_tab = true,
+
+    colors = theme.colors(),
+    window_frame = theme.window_frame(), -- optional, only if using fancy tab bar
 }
 
 if wezterm.target_triple:find("windows") ~= nil then
