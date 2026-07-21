@@ -79,6 +79,7 @@ require("mini.diff").setup()
 require("mini.move").setup()
 require("mini.cmdline").setup()
 require("mini.completion").setup()
+require("mini.surround").setup()
 
 vim.keymap.set("i", "<Tab>", 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { expr = true })
 vim.keymap.set("i", "<S-Tab>", 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { expr = true })

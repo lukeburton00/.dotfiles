@@ -18,7 +18,7 @@ set $term ghostty
 # Your preferred application launcher
 set $menu fuzzel
 
-set $browser flatpak run org.mozilla.firefox
+set $browser librewolf
 
 ### Output configuration
 #
@@ -63,6 +63,8 @@ default_floating_border none
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 exec mako --default-timeout 5000 --output DP-4 --anchor bottom-right
+
+exec_always xrandr --output DP-4 --primary
 
 ### Input configuration
 #
