@@ -3,13 +3,8 @@
 Behold, my dots!
 
 ## Example Usage
-I use [mise](https://mise.jdx.dev/):
+I use [stow](https://www.gnu.org/software/stow/) to store each config in its place:
 
 ```zsh
-## Tasks are defined to set up symlinks per-platform:
-
-# linux
-mise link_linux
-
-# macos
-mise link_macos
+stow nvim
+```
