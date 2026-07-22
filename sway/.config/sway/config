@@ -17,8 +17,7 @@ set $browser flatpak run io.gitlab.librewolf-community
 
 output * bg ~/Pictures/wallpapers/wallpaper.jpg fill
 
-output DP-2 resolution 3440x1440@144Hz 	position 1440 525 
-output DP-1 resolution 2560x1440@60Hz	position 0 0 transform 270
+exec_always kanshi
 
 workspace 1 output "DP-2"
 workspace 2 output "DP-2"
