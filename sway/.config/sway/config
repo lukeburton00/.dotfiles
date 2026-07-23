@@ -13,7 +13,7 @@ set $right l
 
 set $term ghostty
 set $menu fuzzel
-set $browser flatpak run io.gitlab.librewolf-community
+set $browser librewolf
 
 output * bg ~/Pictures/wallpapers/wallpaper.jpg fill
 
