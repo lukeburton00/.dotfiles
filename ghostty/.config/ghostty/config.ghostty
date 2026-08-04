@@ -1,4 +1,4 @@
-theme = Vague
+theme = Nord Wave
 font-size = 16
 quit-after-last-window-closed=true
 term = xterm-256color
