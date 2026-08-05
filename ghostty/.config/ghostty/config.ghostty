@@ -1,4 +1,11 @@
-theme = Nord Wave
-font-size = 16
+theme = Vague
+font-size = 14
 quit-after-last-window-closed=true
 term = xterm-256color
+
+config-file = ?Macos
+
+background-opacity = 0.90
+background-blur = true
+
+window-decoration = server
