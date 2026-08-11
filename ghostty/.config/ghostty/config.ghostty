@@ -5,4 +5,3 @@ term = xterm-256color
 window-decoration = server
 
 config-file = ?Macos
-
