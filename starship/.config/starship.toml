@@ -1,0 +1,6 @@
+[character]
+format = '[~>](bold dimmed blue) '
+
+
+[aws]
+disabled = true
