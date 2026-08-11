@@ -1,11 +1,8 @@
-theme = Vague
+theme = Nord Wave
 font-size = 14
 quit-after-last-window-closed=true
 term = xterm-256color
+window-decoration = server
 
 config-file = ?Macos
 
-background-opacity = 0.90
-background-blur = true
-
-window-decoration = server
