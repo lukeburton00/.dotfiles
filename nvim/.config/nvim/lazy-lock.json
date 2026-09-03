@@ -7,7 +7,7 @@
   "navigator.nvim": { "branch": "master", "commit": "91d86506ac2a039504d5205d32a1d4bc7aa57072" },
   "nord.nvim": { "branch": "master", "commit": "80c1e5321505aeb22b7a9f23eb82f1e193c12470" },
   "nvim-lint": { "branch": "master", "commit": "3d55c8f67c6ae5c15e1042571e107c7a3d5c5f4e" },
-  "nvim-lspconfig": { "branch": "master", "commit": "ee1e369181a9e64904cdd7b739e98c70778cfc71" },
+  "nvim-lspconfig": { "branch": "master", "commit": "85e732c62ac59ab7c12df71ddd020baa87948390" },
   "oil.nvim": { "branch": "master", "commit": "b73018b75affd13fa38e2fc94ef753b465f770d7" },
   "tree-sitter-manager.nvim": { "branch": "main", "commit": "023590c8f068788a0513a4409bf37ff7f9d1deff" }
 }
