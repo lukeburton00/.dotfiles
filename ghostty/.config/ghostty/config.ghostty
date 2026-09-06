@@ -3,5 +3,7 @@ font-size = 14
 quit-after-last-window-closed=true
 term = xterm-256color
 window-decoration = server
+clipboard-paste-protection = false
 
 config-file = ?Macos
+
