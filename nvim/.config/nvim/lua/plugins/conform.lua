@@ -1,5 +1,8 @@
 return {
     "stevearc/conform.nvim",
+    dependencies = {
+        "mason-org/mason.nvim",
+    },
     opts = {
 
         formatters_by_ft = {
@@ -13,6 +16,7 @@ return {
             rust = { "rustfmt" },
             typescript = { "prettierd" },
             elixir = { "mix" },
+            gdscript = { "gdformat" },
         },
         default_format_opts = {
             lsp_format = "fallback",

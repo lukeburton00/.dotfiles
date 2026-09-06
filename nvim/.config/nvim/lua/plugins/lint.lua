@@ -1,5 +1,8 @@
 return {
     "mfussenegger/nvim-lint",
+    dependencies = {
+        "mason-org/mason.nvim",
+    },
     config = function()
         require("lint").linters_by_ft = {
             go = { "golangcilint" },
@@ -11,6 +14,7 @@ return {
             rust = { "clippy" },
             typescript = { "eslint_d" },
             elixir = { "credo" },
+            gdscript = { "gdlint" },
         }
 
         vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
