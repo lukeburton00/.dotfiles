@@ -1,9 +1,12 @@
 return {
-    "shaunsingh/nord.nvim",
+    "vague-theme/vague.nvim",
     lazy = false,
     priority = 1000,
+    opts = {
+        transparent = false,
+    },
+
     config = function()
-        vim.g.nord_disable_background = true
-        require("nord").set()
+        vim.cmd.colorscheme("vague")
     end,
 }
