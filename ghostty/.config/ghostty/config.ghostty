@@ -4,6 +4,9 @@ quit-after-last-window-closed=true
 term = xterm-256color
 window-decoration = server
 clipboard-paste-protection = false
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = clipboard
 
 config-file = ?Macos
 
