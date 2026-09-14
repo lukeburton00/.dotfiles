@@ -1,42 +1,52 @@
+# gitmux() and wt() were mostly vibe-coded
+
 gitmux() {
-    local sessions
-    sessions=${(j:|:)${(f)"$(tmux list-sessions -F '#{session_name}' 2>/dev/null)"}}
+    local -a rows session_rows inactive_repos
+    local -A active_sessions
+    local name dir base tmux_session description
+    local tab=$'\t'
+
+    while IFS=$'\t' read -r name dir; do
+        [[ -n $name ]] || continue
+        [[ -n $dir ]] || dir=$HOME
+        active_sessions[$name]=1
+        session_rows+=("$dir$tab $name$tab$name")
+    done < <(tmux list-sessions -F $'#{session_name}\t#{session_path}' 2>/dev/null)
+
+    while IFS= read -r dir; do
+        dir=${dir%/.git/}
+        dir=${dir%/.git}
+        [[ -d $dir ]] || continue
+        base=${dir:t}
+        tmux_session=${base//[^a-zA-Z0-9]/_}
+        description="󰉋 $base"
+        if (( ! ${+active_sessions[$tmux_session]} )); then
+            inactive_repos+=("$dir$tab$description$tab$tmux_session")
+        fi
+    done < <(fd -I -H --type d '^\.git$' ~/dev ~ -d 2 2>/dev/null | sort -u)
+
+    rows=("${session_rows[@]}" "${inactive_repos[@]}")
 
     local selection
-    selection=$(fd -I -H --type d '^\.git$' ~/dev ~ -d 2 2>/dev/null \
-        | awk -v s="$sessions" '
-            BEGIN { n=split(s,a,"|"); for(i=1;i<=n;i++) active[a[i]]=1 }
-            {
-                dir=$0; sub(/\/\.git\/$/, "", dir)
-                n=split(dir,p,"/"); base=p[n]
-                branch="detached"
-                headfile=dir"/.git/HEAD"
-                if ((getline line < headfile) > 0)
-                    if (sub(/^ref: refs\/heads\//, "", line)) branch=line
-                close(headfile)
-                sname=base; gsub(/[^a-zA-Z0-9]/, "_", sname)
-                act=(sname in active)
-                printf "%s\t%s\t%s (%s)%s\n", (act?"0":"1"), dir, base, branch, (act?" ★":"")
-            }' \
-        | sort -t$'\t' -k1,1 | cut -f2- \
-        | fzf --multi --with-nth=2 --delimiter='\t' --query="$*" \
+    selection=$(printf '%s\n' "${rows[@]}" \
+        | fzf --multi --with-nth=2 --delimiter="$tab" --query="$*" \
             --header="enter: open workspace · C-x: kill · C-n: detached · C-r: refresh" \
             --expect=ctrl-x,ctrl-n,ctrl-r \
-            --preview='git -C {1} log --oneline -8 2>/dev/null; echo; git -C {1} status --short 2>/dev/null' \
+            --preview='p={1}; cd "$p" 2>/dev/null || exit; if command -v eza >/dev/null 2>&1; then eza --tree --level=2 --all --git-ignore --icons --color=always -- . | sed -E "s#^\\./##" | grep -vFx .; elif command -v lsd >/dev/null 2>&1; then lsd --tree --depth 2 --icon always --ignore-glob .git . | sed -E "s#^\\./##" | grep -vFx .; elif command -v fd >/dev/null 2>&1; then fd -I -H --max-depth 2 --exclude .git . . 2>/dev/null | sed -E "s#^\\./##" | grep -vFx .; else find . -not -path "./.git*" -print 2>/dev/null | sed -E "s#^\\./##" | grep -vFx .; fi' \
             --preview-window="right:50%") || return
 
-    local lines=("${(@f)selection}")
+    local -a lines items fields
+    lines=("${(@f)selection}")
     local key=$lines[1]
-    local items=("${(@)lines[2,-1]}")
-    local folder=${items[1]%%$'\t'*}
+    items=("${lines[2,-1]}")
 
     case "$key" in
         ctrl-x|ctrl-n)
-            local f s
+            local item f s
             for item in "${items[@]}"; do
-                f=${item%%$'\t'*}
-                s=${f:t}
-                s=${s//[^a-zA-Z0-9]/_}
+                fields=("${(@ps:$tab:)item}")
+                f=$fields[1]; s=$fields[3]
+                [[ -n $s ]] || continue
                 if [[ $key == ctrl-x ]]; then
                     tmux kill-session -t "$s" 2>/dev/null && echo "Killed: $s"
                 else
@@ -47,29 +57,19 @@ gitmux() {
             gitmux ;;
         ctrl-r) gitmux ;;
         *)
-            local session=${folder:t}
-            session=${session//[^a-zA-Z0-9]/_}
-            if ! tmux has-session -t "$session" 2>/dev/null; then
-                tmux new-session -ds "$session" -c "$folder"
-            fi
+            fields=("${(@ps:$tab:)items[1]}")
+            dir=$fields[1]; s=$fields[3]
+            [[ -n $dir ]] || return
+            tmux has-session -t "$s" 2>/dev/null || tmux new-session -ds "$s" -c "$dir"
             if [[ -z $TMUX ]]; then
-                tmux attach -t "$session"
+                tmux attach -t "$s"
             else
-                tmux switch-client -t "$session"
+                tmux switch-client -t "$s"
             fi ;;
     esac
 }
 
 bindkey -s '^f' 'gitmux\n'
-
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
 
 wt() {
     if [[ $1 == -h || $1 == --help || $1 == help ]]; then
@@ -133,4 +133,13 @@ usage:
             print -u2 "wt: unknown command '$cmd' (new|rm|list)"; return 1
             ;;
     esac
+}
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
