@@ -17,6 +17,7 @@ return {
             typescript = { "prettierd" },
             elixir = { "mix" },
             gdscript = { "gdformat" },
+            csharp = { "csharpier" },
         },
         default_format_opts = {
             lsp_format = "fallback",

@@ -1,7 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        "mason-org/mason.nvim"
+        "mason-org/mason.nvim",
     },
     config = function()
         vim.lsp.enable({
@@ -16,6 +16,7 @@ return {
             "ts_ls",
             "elixirls",
             "gdscript",
+            "csharp_ls",
         })
 
         vim.lsp.config("lua_ls", {
