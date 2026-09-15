@@ -1,4 +1,5 @@
 theme = Vague
+background = #090909
 font-size = 14
 quit-after-last-window-closed=true
 term = xterm-256color
