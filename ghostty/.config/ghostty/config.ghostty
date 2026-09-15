@@ -1,13 +1,20 @@
+term = xterm-256color
+
 theme = Vague
 background = #090909
+
 font-size = 14
+
 quit-after-last-window-closed=true
-term = xterm-256color
 window-decoration = server
+
 clipboard-paste-protection = false
 clipboard-read = allow
 clipboard-write = allow
 copy-on-select = clipboard
 
-config-file = ?Macos
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
 
+config-file = ?Macos
