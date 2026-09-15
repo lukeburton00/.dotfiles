@@ -1,7 +1,6 @@
 term = xterm-256color
 
 theme = Vague
-background = #090909
 
 font-size = 14
 
