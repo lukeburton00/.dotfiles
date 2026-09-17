@@ -11,6 +11,7 @@ clipboard-paste-protection = false
 clipboard-read = allow
 clipboard-write = allow
 copy-on-select = clipboard
+app-notifications = no-clipboard-copy
 
 font-feature = -calt
 font-feature = -liga
