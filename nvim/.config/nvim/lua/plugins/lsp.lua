@@ -16,7 +16,7 @@ return {
             "ts_ls",
             "elixirls",
             "gdscript",
-            "csharp_ls",
+            "roslyn_ls",
         })
 
         vim.lsp.config("lua_ls", {
