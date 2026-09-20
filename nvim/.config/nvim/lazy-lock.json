@@ -7,7 +7,7 @@
   "mini.nvim": { "branch": "main", "commit": "ac5dffcc52b8378fbb15efeb0497a83e57a0b01c" },
   "navigator.nvim": { "branch": "master", "commit": "91d86506ac2a039504d5205d32a1d4bc7aa57072" },
   "nvim-lint": { "branch": "master", "commit": "3d55c8f67c6ae5c15e1042571e107c7a3d5c5f4e" },
-  "nvim-lspconfig": { "branch": "master", "commit": "b410cbfb9934e3d37733d36e396feeb51d43881c" },
+  "nvim-lspconfig": { "branch": "master", "commit": "ffd261c09c3dabd0bf1a438f47a8ae3b22f3c3ff" },
   "oil.nvim": { "branch": "master", "commit": "b73018b75affd13fa38e2fc94ef753b465f770d7" },
   "tree-sitter-manager.nvim": { "branch": "main", "commit": "1425eacb78bfee34face0fe06a8384ac3c4d9c8e" },
   "vague.nvim": { "branch": "main", "commit": "f9060fdaf7b20f68575d6f8214da6f1cf0c72825" }
