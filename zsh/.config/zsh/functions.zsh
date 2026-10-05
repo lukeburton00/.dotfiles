@@ -1,5 +1,3 @@
-# gitmux() and wt() were mostly vibe-coded
-
 gitmux() {
     local -a rows session_rows inactive_repos
     local -A active_sessions
@@ -69,7 +67,53 @@ gitmux() {
     esac
 }
 
-bindkey -s '^f' 'gitmux\n'
+hws() {
+    local -a rows fields
+    local tab=$'\t' dir base label description selection
+
+    while IFS= read -r dir; do
+        dir=${dir%/.git/}
+        dir=${dir%/.git}
+        [[ -d $dir ]] || continue
+        base=${dir:t}
+        label=$base
+        description="󰉋 $base"
+        rows+=("$dir$tab$description$tab$label")
+    done < <(fd -I -H --type d '^\.git$' ~/dev ~ -d 2 2>/dev/null | sort -u)
+
+    if (( ! ${#rows} )); then
+        print 'gitmux_herdr: no Git repositories found'
+        return 0
+    fi
+
+    selection=$(printf '%s\n' "${rows[@]}" \
+        | fzf --with-nth=2 --delimiter="$tab" --query="$*" \
+            --header='enter: create workspace · esc: cancel' \
+            --preview='p={1}; cd "$p" 2>/dev/null || exit; if command -v eza >/dev/null 2>&1; then eza --tree --level=2 --all --git-ignore --icons --color=always -- . | sed -E "s#^\\./##" | grep -vFx .; elif command -v lsd >/dev/null 2>&1; then lsd --tree --depth 2 --icon always --ignore-glob . | sed -E "s#^\\./##" | grep -vFx .; elif command -v fd >/dev/null 2>&1; then fd -I -H --max-depth 2 --exclude .git . . 2>/dev/null | sed -E "s#^\\./##" | grep -vFx .; else find . -not -path "./.git*" -print 2>/dev/null | sed -E "s#^\\./##" | grep -vFx .; fi' \
+            --preview-window='right:50%') || return
+
+    fields=("${(@ps:$tab:)selection}")
+    dir=$fields[1]
+    label=$fields[3]
+    [[ -n $dir && -n $label ]] || return 0
+
+    if ! command -v herdr >/dev/null 2>&1; then
+        print -u2 'gitmux_herdr: herdr is not on PATH in this shell'
+        return 1
+    fi
+    herdr workspace create --cwd "$dir" --label "$label" --focus >/dev/null || {
+        print -u2 "gitmux_herdr: failed to create workspace for $dir"
+        return 1
+    }
+    print "Created workspace: $label"
+
+    # A normal terminal needs to attach to see Herdr; managed panes are already in its UI.
+    if [[ ${HERDR_ENV:-} != 1 ]]; then
+        herdr || return 1
+    fi
+}
+
+bindkey -s '^f' 'hws\n'
 
 wt() {
     if [[ $1 == -h || $1 == --help || $1 == help ]]; then
