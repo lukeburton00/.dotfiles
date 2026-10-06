@@ -1,5 +1,6 @@
 onboarding = false
 
+
 [keys]
 navigate_workspace_up = "k"
 navigate_workspace_down = "j"
@@ -7,3 +8,6 @@ navigate_workspace_down = "j"
 [theme]
 name = "terminal"
 auto_switch = false
+
+[ui]
+prompt_new_tab_name = false
