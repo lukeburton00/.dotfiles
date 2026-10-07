@@ -1,0 +1,6 @@
+# herdr-lazy lock — resolved plugin set at last sync.
+# Each `owner/repo@commit` reproduces exactly via `plugin install --ref`.
+# Commits come from herdr's own `source.resolved_commit`.
+
+natori-hrj/herdr-lazy@8caad442f3710be6aff6872b03069068a931b38f
+lmilojevicc/herdr-splits.nvim@94f30cf4e9ac76ddf185a3acd0977be728fa4106
