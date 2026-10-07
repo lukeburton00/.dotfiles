@@ -1,0 +1,10 @@
+plugins/
+session-snapshots/
+
+.plugins.lock
+plugins.json
+session.json
+
+*.log
+*.sock
+*.sock.*
