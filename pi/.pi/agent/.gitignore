@@ -1,0 +1,13 @@
+# Credentials and machine-local state
+/auth.json
+/mcp-auth.json
+/models-store.json
+/trust.json
+/sessions/
+/npm/
+/logs/
+/*.log*
+
+# Generated integration and dependencies
+/extensions/herdr-agent-state.ts
+node_modules/

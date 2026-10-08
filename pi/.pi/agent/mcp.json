@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "figma": {
+      "url": "https://mcp.figma.com/mcp",
+      "oauth": {
+        "clientName": "Claude Code"
+      },
+      "description": "Inspect Figma designs, component specifications, and screenshots"
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--no-usage-statistics"
+      ],
+      "description": "Inspect and automate Chrome for visual and functional UI verification"
+    },
+    "exa": {
+      "url": "https://mcp.exa.ai/mcp",
+      "description": "Search the web and fetch relevant page content with Exa"
+    },
+    "clickup": {
+      "url": "https://mcp.clickup.com/mcp"
+    }
+  }
+}
