@@ -37,3 +37,6 @@ auto_switch = false
 
 [ui]
 prompt_new_tab_name = false
+
+[terminal]
+default_shell = "zsh"
