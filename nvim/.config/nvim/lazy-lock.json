@@ -3,7 +3,6 @@
   "filler-begone.nvim": { "branch": "main", "commit": "122018c0f54519b9ee16fb0e31b96989a7682e1c" },
   "fzf-lua": { "branch": "main", "commit": "3868dcc78d2c2766c9510ab18b6d3815071b389e" },
   "gitsigns.nvim": { "branch": "main", "commit": "fd780920613e541cbdfac41bf711583ed49f9249" },
-  "herdr-splits.nvim": { "branch": "main", "commit": "94f30cf4e9ac76ddf185a3acd0977be728fa4106" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "mason.nvim": { "branch": "main", "commit": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d" },
   "mini.nvim": { "branch": "main", "commit": "e3f2349a65143ff062f0b70ee9d68d8ce35c7059" },
@@ -12,5 +11,6 @@
   "oil.nvim": { "branch": "master", "commit": "d3733d933833a0e59b813ecec99341527adf0c28" },
   "tree-sitter-manager.nvim": { "branch": "main", "commit": "27cf9c8a3767b070c22f31e92451006ee2e43540" },
   "vague.nvim": { "branch": "main", "commit": "73f8aaa866bf3d14dd0b0ab9e48c11794c1cb7ab" },
-  "vim-pencil": { "branch": "master", "commit": "6d70438a8886eaf933c38a7a43a61adb0a7815ed" }
+  "vim-pencil": { "branch": "master", "commit": "6d70438a8886eaf933c38a7a43a61adb0a7815ed" },
+  "vim-tmux-navigator": { "branch": "master", "commit": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432" }
 }
